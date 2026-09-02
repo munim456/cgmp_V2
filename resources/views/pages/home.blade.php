@@ -47,9 +47,9 @@
 @if($doctors->isNotEmpty())
 <section class="bg-white px-6 py-16">
     <x-section-title eyebrow="Meet Our Doctors" title="Expert Care from Experienced Practitioners" copy="Our team brings a wealth of experience and compassion to every consultation." :nowrap="true" />
-    <div class="mx-auto mt-10 grid max-w-4xl gap-6 md:grid-cols-2">
+    <div class="mx-auto mt-10 grid max-w-sm gap-6">
         @foreach($doctors as $doctor)
-            <div class="flex flex-col rounded-2xl bg-white p-5 shadow-[0_4px_24px_rgba(27,114,181,0.08)] transition-all duration-300 ease-out hover:-translate-y-1" data-reveal>
+            <div class="flex flex-col rounded-[22px] bg-white p-5 shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition-all duration-300 ease-out hover:-translate-y-1" data-reveal>
                 <div class="mb-3 flex items-start gap-3">
                     <div class="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br from-blue-400 to-blue-600 text-base font-bold text-white">
                         @if($doctor->photo)
@@ -59,17 +59,17 @@
                         @endif
                     </div>
                     <div>
-                        <h3 class="text-sm font-bold text-[#08253C]">{{ $doctor->name }}</h3>
-                        <p class="text-xs font-semibold text-[#56A135]">{{ $doctor->qualifications }}</p>
+                        <h3 class="text-sm font-bold text-[#002B49]">{{ $doctor->name }}</h3>
+                        <p class="text-xs font-semibold text-[#4A8B2C]">{{ $doctor->qualifications }}</p>
                         <p class="text-xs text-gray-500">{{ $doctor->role }}</p>
                     </div>
                 </div>
                 <div class="mt-auto">
-                    <a href="{{ route('booking') }}" class="flex w-full items-center justify-center gap-2 rounded-xl bg-[#56A135] px-4 py-2.5 text-sm font-semibold text-white shadow-lg transition-all hover:bg-brand-green-dark">
+                    <a href="{{ route('booking') }}" class="flex w-full items-center justify-center gap-2 rounded-xl bg-[#52A336] px-4 py-2.5 text-sm font-semibold text-white shadow-lg transition-all hover:bg-[#468c2c]">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
                         Book Appointment
                     </a>
-                    <a href="{{ route('doctors') }}" class="mt-1.5 block py-1 text-center text-sm font-medium text-[#114A75] hover:text-[#56A135]">View Full Profile &rarr;</a>
+                    <a href="{{ route('doctors') }}" class="mt-1.5 block py-1 text-center text-sm font-medium text-[#1E40AF] hover:text-[#52A336]">View Full Profile &rarr;</a>
                 </div>
             </div>
         @endforeach
@@ -108,9 +108,11 @@
 @endif
 
 @if($latestPosts->isNotEmpty())
-<section class="relative isolate overflow-hidden px-6 py-14" style="background-image: linear-gradient(rgba(255,255,255,.82), rgba(255,255,255,.82)), url('{{ asset('images/blog-bg.jpg') }}'); background-size: cover; background-position: center;">
+<section class="bg-grain relative isolate overflow-hidden bg-gradient-to-br from-white via-brand-blue-tint to-[#a9d4f5] px-6 py-14">
+    <span class="pointer-events-none absolute -left-6 -top-16 select-none font-serif text-[220px] leading-none text-brand-blue-tint md:text-[280px]" aria-hidden="true">&ldquo;</span>
     <div class="relative">
         <x-section-title eyebrow="From the blog" title="Health Articles & Clinic News" copy="Read the latest updates and health advice from our practice." />
+        <div class="mx-auto mt-6 h-px w-16 bg-brand-green"></div>
         <div class="mx-auto mt-8 grid max-w-6xl gap-5 md:grid-cols-3">
             @foreach($latestPosts->take(3) as $post)
                 <x-post-card :post="$post" />

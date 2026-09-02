@@ -50,6 +50,19 @@
     box-shadow: 0 0 20px rgba(0, 115, 198, 0.25);
 }
 
+/* Editorial paper-grain texture (static SVG noise, no repaint cost) */
+.bg-grain {
+    position: relative;
+}
+.bg-grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.05;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
 /* Button micro-interactions */
 .btn-lift {
     transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;

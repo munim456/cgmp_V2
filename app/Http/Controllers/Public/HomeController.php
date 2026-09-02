@@ -20,7 +20,7 @@ class HomeController extends Controller
             'bookingStrip' => section_data('booking_strip'),
             'latestPosts' => Post::query()->published()->with('category')->latest('published_at')->take(4)->get(),
             'services' => Service::active()->take(3)->get(),
-            'doctors' => Doctor::active()->get(),
+            'doctors' => Doctor::active()->take(1)->get(),
             'faqs' => Faq::active()->take(6)->get(),
             'testimonials' => Testimonial::active()->get(),
         ]);
