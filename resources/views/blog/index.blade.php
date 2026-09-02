@@ -1,0 +1,38 @@
+@extends('layouts.public')
+
+@section('title', 'Blog')
+
+@section('content')
+<section class="px-6 py-24">
+    <x-section-title eyebrow="Our Blog" title="Health Articles & Clinic News" copy="Read the latest updates and health advice from our practice." />
+
+    <form method="GET" action="{{ route('blog.index') }}" class="mx-auto mt-10 flex max-w-md items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-3 shadow-sm">
+        @if(request('category'))
+            <input type="hidden" name="category" value="{{ request('category') }}">
+        @endif
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0 text-[#60758d]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="search" name="q" value="{{ request('q') }}" placeholder="Search articles&hellip;" class="w-full border-0 p-0 text-sm focus:ring-0">
+        <button type="submit" class="shrink-0 rounded-full bg-brand-blue px-4 py-1.5 text-sm font-semibold text-white">Search</button>
+    </form>
+
+    <div class="mx-auto mt-6 flex max-w-6xl flex-wrap items-center justify-center gap-3">
+        <a href="{{ route('blog.index', request()->only('q')) }}" class="rounded-full px-4 py-2 text-sm font-semibold {{ request('category') ? 'bg-brand-blue-tint text-[#062238]' : 'bg-brand-blue text-white' }}">All</a>
+        @foreach($categories as $category)
+            <a href="{{ route('blog.index', ['category' => $category->slug] + request()->only('q')) }}" class="rounded-full px-4 py-2 text-sm font-semibold {{ request('category') === $category->slug ? 'bg-brand-blue text-white' : 'bg-brand-blue-tint text-[#062238]' }}">{{ $category->name }}</a>
+        @endforeach
+    </div>
+
+    @if($posts->isNotEmpty())
+        <div class="mx-auto mt-14 grid max-w-6xl gap-7 md:grid-cols-3">
+            @foreach($posts as $post)
+                <x-post-card :post="$post" />
+            @endforeach
+        </div>
+        <div class="mx-auto mt-14 max-w-6xl">
+            {{ $posts->links() }}
+        </div>
+    @else
+        <p class="mt-14 text-center text-[#60758d]">No posts yet — check back soon.</p>
+    @endif
+</section>
+@endsection

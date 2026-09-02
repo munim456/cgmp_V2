@@ -1,0 +1,170 @@
+@extends('layouts.public')
+
+@section('title', $hero['heading'] ?? 'Home')
+
+@section('content')
+
+<section class="relative isolate overflow-hidden bg-brand-blue text-white">
+    <div class="relative mx-auto md:aspect-[11/4]">
+        <div class="relative z-10 flex items-center overflow-hidden px-6 py-16 md:absolute md:inset-y-0 md:left-0 md:w-1/2 md:px-[3vw] md:py-[1vw]">
+            <div class="hero-circle pointer-events-none absolute -right-16 top-1/2 hidden h-72 w-72 -translate-y-1/2 rounded-full border border-white/10 md:block"></div>
+            <div class="hero-circle pointer-events-none absolute -right-32 top-1/3 hidden h-56 w-56 -translate-y-1/2 rounded-full border border-white/10 md:block" style="animation-delay: 1.3s"></div>
+            <div class="relative max-w-[560px] md:max-w-[42vw]">
+                @if(!empty($hero['badge_text']))
+                    <p class="font-serif font-bold uppercase leading-tight text-brand-green text-3xl md:text-[clamp(1rem,2.6vw,2.25rem)]">{{ $hero['badge_text'] }}</p>
+                @endif
+                <h1 class="font-serif font-bold mt-4 text-3xl md:mt-[1vw] md:text-[clamp(1.15rem,3.4vw,3rem)]">{{ $hero['heading'] ?? 'Welcome to ' . setting('clinic_name') }}</h1>
+                <p class="leading-7 text-blue-50 mt-4 text-base md:mt-[0.8vw] md:text-[clamp(0.7rem,1.1vw,1.125rem)] md:leading-[1.5]">{{ $hero['subheading'] ?? '' }}</p>
+                <div class="flex flex-wrap gap-4 mt-6 md:mt-[1.2vw] md:gap-[1vw]">
+                    <a href="{{ $hero['primary_button_link'] ?? route('booking') }}" class="btn-lift inline-flex items-center gap-3 rounded-2xl bg-brand-green font-bold text-white shadow-lg hover:bg-brand-green-dark px-7 py-5 md:gap-[0.6vw] md:px-[1.6vw] md:py-[1vw] md:text-[clamp(0.7rem,1.05vw,1rem)]">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-[1.4vw] md:w-[1.4vw]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                        {{ $hero['primary_button_text'] ?? 'Book Appointment' }}
+                    </a>
+                    <a href="tel:{{ preg_replace('/\s+/', '', setting('phone', '')) }}" class="btn-lift inline-flex items-center gap-3 rounded-2xl border border-blue-300/60 hover:bg-white/10 px-7 py-5 md:gap-[0.6vw] md:px-[1.6vw] md:py-[1vw] md:text-[clamp(0.7rem,1.05vw,1rem)]">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-[1.4vw] md:w-[1.4vw]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        {{ setting('phone') }}
+                    </a>
+                </div>
+                <div class="flex flex-wrap gap-2 mt-4 text-xs md:mt-[0.8vw] md:gap-[0.5vw] md:text-[clamp(0.6rem,0.85vw,0.875rem)]">
+                    @foreach(preg_split('/\r\n|\r|\n/', trim(setting('opening_hours', ''))) as $line)
+                        @if(trim($line) !== '')
+                            <span class="rounded-full border border-blue-300/40 bg-blue-500/20 px-3 py-1.5 md:px-[0.9vw] md:py-[0.45vw]">{{ trim($line) }}</span>
+                        @endif
+                    @endforeach
+                    <span class="rounded-full border border-blue-300/40 bg-blue-500/20 px-3 py-1.5 md:px-[0.9vw] md:py-[0.45vw]">{{ setting('address_line1') }}, {{ setting('address_suburb') }}</span>
+                </div>
+            </div>
+        </div>
+        <div class="relative min-h-[280px] overflow-hidden md:absolute md:inset-y-0 md:right-0 md:min-h-0 md:w-1/2">
+            <img src="{{ image_url($hero['image'] ?? null, 'images/hero-team-11x4.jpg') }}" alt="Our clinic team" class="absolute inset-0 h-full w-full object-cover">
+            <div class="pointer-events-none absolute inset-y-0 left-0 hidden w-24 bg-gradient-to-r from-brand-blue to-transparent md:block"></div>
+            <div class="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-brand-blue/40 to-transparent md:hidden"></div>
+            <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-brand-blue/15 via-transparent to-transparent"></div>
+        </div>
+    </div>
+</section>
+
+@if($doctors->isNotEmpty())
+<section class="bg-white px-6 py-16">
+    <x-section-title eyebrow="Meet Our Doctors" title="Expert Care from Experienced Practitioners" copy="Our team brings a wealth of experience and compassion to every consultation." :nowrap="true" />
+    <div class="mx-auto mt-10 grid max-w-4xl gap-6 md:grid-cols-2">
+        @foreach($doctors as $doctor)
+            <div class="flex flex-col rounded-2xl bg-white p-5 shadow-[0_4px_24px_rgba(27,114,181,0.08)] transition-all duration-300 ease-out hover:-translate-y-1" data-reveal>
+                <div class="mb-3 flex items-start gap-3">
+                    <div class="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br from-blue-400 to-blue-600 text-base font-bold text-white">
+                        @if($doctor->photo)
+                            <img src="{{ image_url($doctor->photo) }}" alt="{{ $doctor->name }}" class="h-full w-full object-cover">
+                        @else
+                            {{ collect(explode(' ', $doctor->name))->map(fn ($w) => mb_substr($w, 0, 1))->implode('') }}
+                        @endif
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-bold text-[#08253C]">{{ $doctor->name }}</h3>
+                        <p class="text-xs font-semibold text-[#56A135]">{{ $doctor->qualifications }}</p>
+                        <p class="text-xs text-gray-500">{{ $doctor->role }}</p>
+                    </div>
+                </div>
+                <div class="mt-auto">
+                    <a href="{{ route('booking') }}" class="flex w-full items-center justify-center gap-2 rounded-xl bg-[#56A135] px-4 py-2.5 text-sm font-semibold text-white shadow-lg transition-all hover:bg-brand-green-dark">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                        Book Appointment
+                    </a>
+                    <a href="{{ route('doctors') }}" class="mt-1.5 block py-1 text-center text-sm font-medium text-[#114A75] hover:text-[#56A135]">View Full Profile &rarr;</a>
+                </div>
+            </div>
+        @endforeach
+    </div>
+    <div class="mt-10 text-center">
+        <a href="{{ route('doctors') }}" class="btn-lift inline-flex items-center gap-2 rounded-2xl bg-brand-green px-7 py-4 font-bold text-white shadow-lg hover:bg-brand-green-dark">
+            Meet All Our Doctors
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+    </div>
+</section>
+@endif
+
+@if($testimonials->isNotEmpty())
+<section class="px-6 py-24" aria-label="Patient feedback">
+    <x-section-title eyebrow="Testimonials" title="What Our Patients Say" />
+    <div class="mx-auto mt-12 grid max-w-5xl gap-7 md:grid-cols-2">
+        @foreach($testimonials as $testimonial)
+            <figure class="rounded-3xl bg-white p-8 shadow-xl" data-reveal>
+                <div class="flex gap-1 text-amber-400">
+                    @for($i = 0; $i < $testimonial->rating; $i++)
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+                    @endfor
+                </div>
+                <blockquote class="mt-4 text-lg leading-7 text-[#062238]">&ldquo;{{ $testimonial->content }}&rdquo;</blockquote>
+                <figcaption class="mt-4 font-semibold text-brand-blue">
+                    {{ $testimonial->name }}
+                    @if($testimonial->context)
+                        <span class="font-normal text-[#60758d]"> &mdash; {{ $testimonial->context }}</span>
+                    @endif
+                </figcaption>
+            </figure>
+        @endforeach
+    </div>
+</section>
+@endif
+
+@if($latestPosts->isNotEmpty())
+<section class="relative isolate overflow-hidden px-6 py-14" style="background-image: linear-gradient(rgba(255,255,255,.82), rgba(255,255,255,.82)), url('{{ asset('images/blog-bg.jpg') }}'); background-size: cover; background-position: center;">
+    <div class="relative">
+        <x-section-title eyebrow="From the blog" title="Health Articles & Clinic News" copy="Read the latest updates and health advice from our practice." />
+        <div class="mx-auto mt-8 grid max-w-6xl gap-5 md:grid-cols-3">
+            @foreach($latestPosts->take(3) as $post)
+                <x-post-card :post="$post" />
+            @endforeach
+        </div>
+        <div class="mt-6 text-center">
+            <a href="{{ route('blog.index') }}" class="inline-flex items-center gap-2 font-semibold text-brand-blue">
+                View All Posts
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+        </div>
+    </div>
+</section>
+@endif
+
+@if($services->isNotEmpty())
+<section class="relative isolate overflow-hidden px-6 py-24" style="background-image: linear-gradient(rgba(255,255,255,.25), rgba(255,255,255,.25)), url('{{ asset('images/faq-consult.jpg') }}'); background-size: cover; background-position: center;">
+    <x-section-title eyebrow="Our Services" title="Comprehensive Care for Your Whole Family" copy="From preventive care to specialist referrals, we provide a full spectrum of medical services tailored to meet the diverse needs of our community." :nowrap="true" />
+    <div class="mx-auto mt-10 grid max-w-6xl gap-5 md:grid-cols-3">
+        @foreach($services as $service)
+            <x-service-card :service="$service" />
+        @endforeach
+    </div>
+    <div class="mt-8 text-center">
+        <a href="{{ route('services.index') }}" class="inline-flex items-center gap-2 font-semibold text-brand-blue">
+            View All Services
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+    </div>
+</section>
+@endif
+
+@if($faqs->isNotEmpty())
+<section class="px-6 py-24">
+    <x-section-title eyebrow="FAQ" title="Frequently Asked Questions" copy="Find answers to the most common questions about our services, booking, and policies." eyebrowClass="px-4 py-1 bg-[#EBF3FC] text-[#002B49] font-bold text-xs rounded-full uppercase tracking-wide" />
+    <div class="mx-auto mt-12 grid max-w-4xl gap-4">
+        @foreach($faqs as $index => $faq)
+            <x-faq-item :question="$faq->question" :answer="$faq->answer" :open="$index === 0" />
+        @endforeach
+        <div class="text-center">
+            <p class="font-semibold text-[#062238]">Have more questions? We're happy to help.</p>
+            <div class="mt-5 flex flex-wrap items-center justify-center gap-4">
+                <a href="{{ route('faq') }}" class="inline-flex items-center gap-2 rounded-2xl border border-black px-6 py-3 font-semibold text-black">
+                    View All FAQs
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="{{ route('contact') }}" class="btn-lift inline-flex items-center gap-2 rounded-2xl bg-brand-blue px-6 py-3 font-semibold text-white shadow-lg hover:bg-brand-blue-dark">
+                    Contact Us
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+@endif
+
+@endsection

@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+[x-cloak] { display: none !important; }
+
+.prose :is(h1, h2, h3, h4) { font-family: theme('fontFamily.serif'); color: #062238; font-weight: 700; margin-top: 1.6em; margin-bottom: 0.5em; }
+.prose p { margin-bottom: 1.1em; }
+.prose ul { list-style: disc; padding-left: 1.4rem; margin-bottom: 1.1em; }
+.prose ol { list-style: decimal; padding-left: 1.4rem; margin-bottom: 1.1em; }
+.prose a { color: theme('colors.brand.blue'); text-decoration: underline; text-underline-offset: 3px; }
+.prose img { border-radius: 1rem; margin-block: 1.5em; }
+
+/* Scroll-reveal (progressively enhanced; hidden only when JS + motion allow it) */
+@media (prefers-reduced-motion: no-preference) {
+    [data-reveal] {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16, 0.84, 0.36, 1);
+    }
+    [data-reveal].is-visible {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* Hero decorative circles: shrink then settle back into place */
+@keyframes hero-circle-pulse {
+    0%, 100% {
+        transform: translateY(-50%) scale(1);
+    }
+    50% {
+        transform: translateY(-50%) scale(0.8);
+    }
+}
+@media (prefers-reduced-motion: no-preference) {
+    .hero-circle {
+        animation: hero-circle-pulse 4s ease-in-out infinite;
+    }
+}
+
+/* Doctor card: soft blue-grey shadow + avatar glow */
+.doctor-card {
+    box-shadow: 0 10px 30px rgba(0, 80, 150, 0.08);
+}
+.doctor-card:hover {
+    box-shadow: 0 16px 40px rgba(0, 80, 150, 0.14);
+}
+.avatar-glow {
+    box-shadow: 0 0 20px rgba(0, 115, 198, 0.25);
+}
+
+/* Button micro-interactions */
+.btn-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+.btn-lift:hover {
+    transform: translateY(-2px);
+}
