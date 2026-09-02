@@ -11,7 +11,7 @@
 
 <div x-data="{ open: false }">
     <header id="site-header" class="border-b border-slate-200 bg-white/95 backdrop-blur">
-        <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 site-header__inner">
+        <div class="mx-auto flex max-w-6xl items-center justify-between py-4 pl-0 pr-6 site-header__inner">
             <a href="{{ route('home') }}"><x-logo /></a>
 
             <nav class="hidden items-center gap-1 lg:flex">
