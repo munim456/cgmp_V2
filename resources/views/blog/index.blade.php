@@ -3,10 +3,13 @@
 @section('title', 'Blog')
 
 @section('content')
-<section class="px-6 py-24">
-    <x-section-title eyebrow="Our Blog" title="Health Articles & Clinic News" copy="Read the latest updates and health advice from our practice." />
+<section class="bg-gradient-to-r from-brand-blue-darker via-brand-blue-dark to-brand-blue px-6 py-16 text-center">
+    <h1 class="font-serif text-3xl font-bold text-white md:text-4xl">Blog &amp; Health News</h1>
+    <p class="mx-auto mt-3 max-w-2xl text-base text-white/85 md:text-lg">Articles, updates and health advice from our practice.</p>
+</section>
 
-    <form method="GET" action="{{ route('blog.index') }}" class="mx-auto mt-10 flex max-w-md items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-3 shadow-sm">
+<section class="px-6 py-16">
+    <form method="GET" action="{{ route('blog.index') }}" class="mx-auto flex max-w-md items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-3 shadow-sm">
         @if(request('category'))
             <input type="hidden" name="category" value="{{ request('category') }}">
         @endif

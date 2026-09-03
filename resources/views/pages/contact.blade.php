@@ -3,8 +3,13 @@
 @section('title', 'Contact Us')
 
 @section('content')
+<section class="bg-gradient-to-r from-brand-blue-darker via-brand-blue-dark to-brand-blue px-6 py-16 text-center">
+    <h1 class="font-serif text-3xl font-bold text-white md:text-4xl">Contact Us</h1>
+    <p class="mx-auto mt-3 max-w-2xl text-base text-white/85 md:text-lg">We're here to help. Reach out with any questions or to book your visit.</p>
+</section>
+
 <section class="bg-brand-green-tint px-6 py-24">
-    <x-section-title eyebrow="Get in Touch" title="Visit Us or Send a Message" copy="We're always happy to hear from you. Reach out with any questions or to find out more about our services." />
+    <x-section-title eyebrow="Get in Touch" title="Visit Us or Send a Message" copy="We're always happy to hear from you. Reach out with any questions or to find out more about our services." titleClass="text-2xl md:text-3xl" copyClass="text-sm md:text-base leading-7" />
 
     <div class="mx-auto mt-14 grid max-w-6xl gap-8 md:grid-cols-2">
         <div>

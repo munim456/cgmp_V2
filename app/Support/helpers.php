@@ -24,10 +24,28 @@ if (! function_exists('image_url')) {
             return $path;
         }
 
+        if ($path && str_starts_with($path, 'images/')) {
+            return asset($path);
+        }
+
         if ($path && trim($path) !== '') {
             return asset('storage/' . ltrim($path, '/'));
         }
 
         return $fallback !== '' ? asset($fallback) : '';
+    }
+}
+
+if (! function_exists('booking_url')) {
+    function booking_url(): string
+    {
+        return setting('healthengine_url') ?: route('booking');
+    }
+}
+
+if (! function_exists('booking_is_external')) {
+    function booking_is_external(): bool
+    {
+        return (bool) setting('healthengine_url');
     }
 }

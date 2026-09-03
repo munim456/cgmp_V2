@@ -3,6 +3,11 @@
 @section('title', 'Our Doctors')
 
 @section('content')
+<section class="bg-gradient-to-r from-brand-blue-darker via-brand-blue-dark to-brand-blue px-6 py-16 text-center">
+    <h1 class="font-serif text-3xl font-bold text-white md:text-4xl">Our Doctors</h1>
+    <p class="mx-auto mt-3 max-w-2xl text-base text-white/85 md:text-lg">Meet the experienced, multilingual team dedicated to your care.</p>
+</section>
+
 <section class="bg-white px-6 py-24">
     <x-section-title eyebrow="Meet Our Doctors" title="Expert Care from Experienced Practitioners" copy="Our multilingual team of GPs bring a wealth of experience and compassion to every consultation." :nowrap="true" />
 
@@ -62,7 +67,7 @@
                 </div>
 
                 <div class="mt-auto">
-                    <a href="{{ route('booking') }}" class="flex w-full items-center justify-center gap-2 rounded-xl bg-[#52A336] px-8 py-2.5 text-sm font-semibold text-white shadow-lg transition-all hover:bg-[#468c2c]">
+                    <a href="{{ booking_url() }}" @if(booking_is_external()) target="_blank" rel="noopener" @endif class="flex w-full items-center justify-center gap-2 rounded-xl bg-[#52A336] px-8 py-2.5 text-sm font-semibold text-white shadow-lg transition-all hover:bg-[#468c2c]">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
                         Book Appointment
                     </a>

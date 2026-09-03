@@ -15,8 +15,12 @@
                 @endif
                 <h1 class="font-serif font-bold mt-4 text-3xl md:mt-[1vw] md:text-[clamp(1.15rem,3.4vw,3rem)]">{{ $hero['heading'] ?? 'Welcome to ' . setting('clinic_name') }}</h1>
                 <p class="leading-7 text-blue-50 mt-4 text-base md:mt-[0.8vw] md:text-[clamp(0.7rem,1.1vw,1.125rem)] md:leading-[1.5]">{{ $hero['subheading'] ?? '' }}</p>
+                @php
+                    $heroPrimaryIsDefault = empty($hero['primary_button_link']) || $hero['primary_button_link'] === '/book-appointment';
+                    $heroPrimaryHref = $heroPrimaryIsDefault ? booking_url() : $hero['primary_button_link'];
+                @endphp
                 <div class="flex flex-wrap gap-4 mt-6 md:mt-[1.2vw] md:gap-[1vw]">
-                    <a href="{{ $hero['primary_button_link'] ?? route('booking') }}" class="btn-lift inline-flex items-center gap-3 rounded-2xl bg-brand-green font-bold text-white shadow-lg hover:bg-brand-green-dark px-7 py-5 md:gap-[0.6vw] md:px-[1.6vw] md:py-[1vw] md:text-[clamp(0.7rem,1.05vw,1rem)]">
+                    <a href="{{ $heroPrimaryHref }}" @if($heroPrimaryIsDefault && booking_is_external()) target="_blank" rel="noopener" @endif class="btn-lift inline-flex items-center gap-3 rounded-2xl bg-brand-green font-bold text-white shadow-lg hover:bg-brand-green-dark px-7 py-5 md:gap-[0.6vw] md:px-[1.6vw] md:py-[1vw] md:text-[clamp(0.7rem,1.05vw,1rem)]">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-[1.4vw] md:w-[1.4vw]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
                         {{ $hero['primary_button_text'] ?? 'Book Appointment' }}
                     </a>
@@ -103,7 +107,7 @@
                 </div>
 
                 <div class="mt-auto">
-                    <a href="{{ route('booking') }}" class="flex w-full items-center justify-center gap-2 rounded-xl bg-[#52A336] px-8 py-2.5 text-sm font-semibold text-white shadow-lg transition-all hover:bg-[#468c2c]">
+                    <a href="{{ booking_url() }}" @if(booking_is_external()) target="_blank" rel="noopener" @endif class="flex w-full items-center justify-center gap-2 rounded-xl bg-[#52A336] px-8 py-2.5 text-sm font-semibold text-white shadow-lg transition-all hover:bg-[#468c2c]">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
                         Book Appointment
                     </a>
