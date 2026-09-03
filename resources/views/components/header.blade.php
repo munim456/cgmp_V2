@@ -20,8 +20,8 @@
                 @endforeach
             </nav>
 
-            <a href="{{ booking_url() }}" @if(booking_is_external()) target="_blank" rel="noopener" @endif class="hidden items-center gap-1.5 rounded-xl bg-brand-blue px-3 py-2 text-xs font-bold text-white shadow-lg hover:bg-brand-blue-dark transition-colors md:flex">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            <a href="{{ booking_url() }}" @if(booking_is_external()) target="_blank" rel="noopener" @endif class="hidden items-center gap-2 rounded-xl bg-brand-blue px-4 py-2.5 text-sm font-bold text-white shadow-lg hover:bg-brand-blue-dark transition-colors md:flex">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
                 Book Appointment
             </a>
 
