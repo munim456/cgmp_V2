@@ -51,6 +51,7 @@ class SectionController extends Controller
     {
         $data = $request->validate([
             'heading' => ['required', 'string', 'max:255'],
+            'subheading' => ['nullable', 'string', 'max:500'],
             'body' => ['nullable', 'string'],
             'points' => ['nullable', 'string'],
             'image' => ['nullable', 'image', 'max:6144'],
@@ -65,6 +66,7 @@ class SectionController extends Controller
 
         $payload = [
             'heading' => $data['heading'],
+            'subheading' => $data['subheading'] ?? ($current['subheading'] ?? ''),
             'body' => $data['body'] ?? '',
             'points' => $points,
             'stats' => $current['stats'] ?? [],

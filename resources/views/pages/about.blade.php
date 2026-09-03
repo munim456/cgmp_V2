@@ -7,7 +7,7 @@
 <section class="bg-gradient-to-br from-brand-blue-darker via-brand-blue-dark to-brand-blue px-6 py-16 text-center">
     <span class="inline-flex items-center rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-[12.5px] font-semibold tracking-wide text-[#bcd4ea]">ABOUT OUR PRACTICE</span>
     <h1 class="mx-auto mt-4 max-w-3xl font-serif text-3xl font-bold leading-tight text-white md:text-4xl">{{ $about['heading'] ?? 'Healthcare for Every Generation' }}</h1>
-    <p class="mx-auto mt-3 max-w-xl text-base leading-relaxed text-[#aec4d8] md:text-lg">We are a passionate team of GPs dedicated to providing exceptional healthcare to our community.</p>
+    <p class="mx-auto mt-3 max-w-xl text-base leading-relaxed text-[#aec4d8] md:text-lg">{{ $about['subheading'] ?? 'We are a passionate team of GPs dedicated to providing exceptional healthcare to our community.' }}</p>
 </section>
 
 {{-- Our Story --}}

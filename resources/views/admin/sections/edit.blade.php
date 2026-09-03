@@ -58,6 +58,10 @@
                 <input type="text" name="heading" value="{{ old('heading', $about['heading'] ?? '') }}" required class="mt-1 w-full rounded-lg border-gray-300">
             </label>
             <label class="block">
+                <span class="text-sm font-semibold">Subheading <span class="text-gray-400">(shown on the About page hero)</span></span>
+                <textarea name="subheading" class="mt-1 w-full rounded-lg border-gray-300" rows="2">{{ old('subheading', $about['subheading'] ?? '') }}</textarea>
+            </label>
+            <label class="block">
                 <span class="text-sm font-semibold">Body</span>
                 <x-trix-field name="body" :value="$about['body'] ?? ''" id="about-body" />
             </label>
