@@ -12,7 +12,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </span>
     </a>
-    <a href="{{ booking_url() }}" @if(booking_is_external()) target="_blank" rel="noopener" @endif class="mt-5 flex w-full items-center justify-center gap-2 rounded-xl bg-[#52A336] px-6 py-2.5 text-sm font-semibold text-white shadow-lg transition-all hover:bg-[#468c2c]">
+    <a href="{{ booking_url() }}" @if(booking_is_external()) target="_blank" rel="noopener" @endif class="btn-lift mt-5 flex w-full items-center justify-center gap-2 rounded-xl bg-[#52A336] px-6 py-2.5 text-sm font-semibold text-white shadow-lg hover:bg-[#468c2c]">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
         Book Appointment
     </a>

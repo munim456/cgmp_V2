@@ -12,7 +12,7 @@
     <x-section-title eyebrow="Get in Touch" title="Visit Us or Send a Message" copy="We're always happy to hear from you. Reach out with any questions or to find out more about our services." titleClass="text-2xl md:text-3xl" copyClass="text-sm md:text-base leading-7" />
 
     <div class="mx-auto mt-14 grid max-w-6xl gap-8 md:grid-cols-2">
-        <div>
+        <div data-reveal>
             <div class="relative overflow-hidden rounded-3xl shadow-xl">
                 <iframe
                     src="{{ setting('google_map_embed') ?: 'https://www.google.com/maps?q=' . urlencode(setting('address_suburb', 'Cringila NSW 2502, Australia')) . '&output=embed' }}"
@@ -24,7 +24,7 @@
                 <a
                     href="https://www.google.com/maps/search/?api=1&query={{ urlencode(setting('address_suburb', 'Cringila NSW 2502')) }}"
                     target="_blank" rel="noopener"
-                    class="absolute left-4 top-4 inline-flex items-center gap-2 rounded-xl bg-white px-4 py-2 text-sm font-semibold text-brand-blue shadow-md"
+                    class="btn-lift absolute left-4 top-4 inline-flex items-center gap-2 rounded-xl bg-white px-4 py-2 text-sm font-semibold text-brand-blue shadow-md"
                 >
                     Open in Maps
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></svg>
@@ -84,7 +84,7 @@
             </div>
         </div>
 
-        <div class="rounded-3xl bg-white p-8 shadow-xl">
+        <div class="rounded-3xl bg-white p-8 shadow-xl" data-reveal>
             <h2 class="font-serif text-3xl font-bold">Send Us a Message</h2>
 
             @if(session('status'))

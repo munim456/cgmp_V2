@@ -70,11 +70,17 @@
                 x-data="{ show: !localStorage.getItem('notice-{{ $announcement->id }}-dismissed') }"
                 x-show="show"
                 x-cloak
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 -translate-y-2"
+                x-transition:enter-end="opacity-100 translate-y-0"
+                x-transition:leave="transition ease-in duration-150"
+                x-transition:leave-start="opacity-100 translate-y-0"
+                x-transition:leave-end="opacity-0 -translate-y-2"
                 class="relative border-b {{ $announcement->type === 'warning' ? 'border-amber-200 bg-amber-50 text-amber-900' : 'border-brand-blue-tint bg-brand-blue-tint text-[#062238]' }}"
             >
                 <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-3">
                     <p class="text-sm">{{ $announcement->message }}</p>
-                    <button @click="show = false; localStorage.setItem('notice-{{ $announcement->id }}-dismissed', '1')" aria-label="Dismiss" class="shrink-0 opacity-70 hover:opacity-100">
+                    <button @click="show = false; localStorage.setItem('notice-{{ $announcement->id }}-dismissed', '1')" aria-label="Dismiss" class="shrink-0 opacity-70 transition-opacity hover:opacity-100">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
                     </button>
                 </div>

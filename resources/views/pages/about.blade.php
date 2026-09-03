@@ -13,7 +13,7 @@
 {{-- Our Story --}}
 <section class="px-6 py-24 md:py-28">
     <div class="mx-auto grid max-w-6xl items-center gap-16 md:grid-cols-2 md:gap-20">
-        <div class="relative mb-10 md:mb-0">
+        <div class="relative mb-10 md:mb-0" data-reveal>
             <img src="{{ image_url($about['image'] ?? null, 'images/hero-team.jpg') }}" alt="{{ setting('clinic_name') }}" class="h-[420px] w-full rounded-[18px] object-cover md:h-[500px]">
 
             @if(!empty($about['stats']))
@@ -30,7 +30,7 @@
             @endif
         </div>
 
-        <div>
+        <div data-reveal>
             <span class="inline-flex items-center rounded-full bg-brand-blue-tint px-4 py-1.5 text-[12.5px] font-semibold tracking-wide text-[#062238]">OUR STORY</span>
             <h2 class="mt-6 font-serif text-3xl font-bold leading-tight text-[#062238] md:text-[38px]">A Practice Built on Trust &amp; Community</h2>
             <div class="prose prose-p:mb-4 prose-p:leading-[1.75] prose-p:text-[#5c6b7a] mt-6">{!! $about['body'] ?? '' !!}</div>
@@ -47,11 +47,11 @@
             @endif
 
             <div class="mt-9 flex flex-wrap gap-4">
-                <a href="{{ booking_url() }}" @if(booking_is_external()) target="_blank" rel="noopener" @endif class="inline-flex items-center gap-2 rounded-[9px] bg-brand-green px-6 py-3.5 text-[15px] font-semibold text-white transition-colors hover:bg-brand-green-dark">
+                <a href="{{ booking_url() }}" @if(booking_is_external()) target="_blank" rel="noopener" @endif class="btn-lift inline-flex items-center gap-2 rounded-[9px] bg-brand-green px-6 py-3.5 text-[15px] font-semibold text-white hover:bg-brand-green-dark">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                     Book an Appointment
                 </a>
-                <a href="{{ route('doctors') }}" class="inline-flex items-center gap-2 rounded-[9px] border-2 border-[#062238] px-6 py-3.5 text-[15px] font-semibold text-[#062238] transition-colors hover:bg-[#062238] hover:text-white">
+                <a href="{{ route('doctors') }}" class="btn-lift inline-flex items-center gap-2 rounded-[9px] border-2 border-[#062238] px-6 py-3.5 text-[15px] font-semibold text-[#062238] hover:bg-[#062238] hover:text-white">
                     Meet Our Team
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                 </a>
@@ -66,7 +66,7 @@
     <h2 class="mx-auto mt-5 font-serif text-3xl font-bold text-[#062238] md:text-[42px]">What We Stand For</h2>
     <p class="mx-auto mt-4 max-w-xl text-base leading-relaxed text-[#5c6b7a] md:text-[16.5px]">These core values guide every decision we make and every interaction we have with our patients.</p>
 
-    <div class="mx-auto mt-14 grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="reveal-stagger mx-auto mt-14 grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-4">
         <div class="rounded-2xl bg-white p-9 text-left shadow-[0_6px_24px_rgba(20,48,74,0.06)]" data-reveal>
             <div class="mb-5 flex h-[54px] w-[54px] items-center justify-center rounded-xl bg-brand-blue-tint text-[#123b5c]">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>

@@ -9,7 +9,7 @@
 </section>
 
 <section class="bg-brand-green-tint px-6 py-16">
-    <div class="mx-auto grid max-w-6xl gap-7 md:grid-cols-3">
+    <div class="reveal-stagger mx-auto grid max-w-6xl gap-7 md:grid-cols-3">
         @foreach($services as $service)
             <x-service-card :service="$service" />
         @endforeach

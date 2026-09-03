@@ -11,9 +11,9 @@
 <section class="bg-white px-6 py-24">
     <x-section-title eyebrow="Meet Our Doctors" title="Expert Care from Experienced Practitioners" copy="Our multilingual team of GPs bring a wealth of experience and compassion to every consultation." :nowrap="true" />
 
-    <div class="mx-auto mt-14 grid max-w-6xl gap-8 md:grid-cols-2 lg:grid-cols-3">
+    <div class="reveal-stagger mx-auto mt-14 grid max-w-6xl gap-8 md:grid-cols-2 lg:grid-cols-3">
         @foreach($doctors as $doctor)
-            <div class="flex flex-col rounded-[22px] bg-white p-7 shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition-all duration-300 ease-out hover:-translate-y-1">
+            <div class="flex flex-col rounded-[22px] bg-white p-7 shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition-all duration-300 ease-out hover:-translate-y-1" data-reveal>
                 <div class="mb-5 flex items-start gap-4">
                     <div class="flex h-20 w-20 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-blue-400 to-blue-600 text-2xl font-bold text-white">
                         @if($doctor->photo)
@@ -67,11 +67,11 @@
                 </div>
 
                 <div class="mt-auto">
-                    <a href="{{ booking_url() }}" @if(booking_is_external()) target="_blank" rel="noopener" @endif class="flex w-full items-center justify-center gap-2 rounded-xl bg-[#52A336] px-8 py-2.5 text-sm font-semibold text-white shadow-lg transition-all hover:bg-[#468c2c]">
+                    <a href="{{ booking_url() }}" @if(booking_is_external()) target="_blank" rel="noopener" @endif class="btn-lift flex w-full items-center justify-center gap-2 rounded-xl bg-[#52A336] px-8 py-2.5 text-sm font-semibold text-white shadow-lg hover:bg-[#468c2c]">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
                         Book Appointment
                     </a>
-                    <a href="{{ route('doctors') }}" class="mt-1.5 block py-1.5 text-center text-sm font-medium text-[#1E40AF] hover:text-[#52A336]">
+                    <a href="{{ route('doctors') }}" class="mt-1.5 block py-1.5 text-center text-sm font-medium text-[#1E40AF] transition-colors duration-200 hover:text-[#52A336]">
                         View Full Profile &rarr;
                     </a>
                 </div>

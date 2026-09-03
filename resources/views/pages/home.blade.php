@@ -51,7 +51,7 @@
 @if($doctors->isNotEmpty())
 <section class="bg-white px-6 py-16">
     <x-section-title eyebrow="Meet Our Doctors" title="Expert Care from Experienced Practitioners" copy="Our team brings a wealth of experience and compassion to every consultation." :nowrap="true" />
-    <div class="mx-auto mt-10 grid max-w-6xl gap-8 md:grid-cols-2 lg:grid-cols-3">
+    <div class="reveal-stagger mx-auto mt-10 grid max-w-6xl gap-8 md:grid-cols-2 lg:grid-cols-3">
         @foreach($doctors as $doctor)
             <div class="flex flex-col rounded-[22px] bg-white p-7 shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition-all duration-300 ease-out hover:-translate-y-1" data-reveal>
                 <div class="mb-5 flex items-start gap-4">
@@ -107,11 +107,11 @@
                 </div>
 
                 <div class="mt-auto">
-                    <a href="{{ booking_url() }}" @if(booking_is_external()) target="_blank" rel="noopener" @endif class="flex w-full items-center justify-center gap-2 rounded-xl bg-[#52A336] px-8 py-2.5 text-sm font-semibold text-white shadow-lg transition-all hover:bg-[#468c2c]">
+                    <a href="{{ booking_url() }}" @if(booking_is_external()) target="_blank" rel="noopener" @endif class="btn-lift flex w-full items-center justify-center gap-2 rounded-xl bg-[#52A336] px-8 py-2.5 text-sm font-semibold text-white shadow-lg hover:bg-[#468c2c]">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
                         Book Appointment
                     </a>
-                    <a href="{{ route('doctors') }}" class="mt-1.5 block py-1.5 text-center text-sm font-medium text-[#1E40AF] hover:text-[#52A336]">
+                    <a href="{{ route('doctors') }}" class="mt-1.5 block py-1.5 text-center text-sm font-medium text-[#1E40AF] transition-colors duration-200 hover:text-[#52A336]">
                         View Full Profile &rarr;
                     </a>
                 </div>
@@ -130,7 +130,7 @@
 @if($testimonials->isNotEmpty())
 <section class="px-6 py-24" aria-label="Patient feedback">
     <x-section-title eyebrow="Testimonials" title="What Our Patients Say" />
-    <div class="mx-auto mt-12 grid max-w-5xl gap-7 md:grid-cols-2">
+    <div class="reveal-stagger mx-auto mt-12 grid max-w-5xl gap-7 md:grid-cols-2">
         @foreach($testimonials as $testimonial)
             <figure class="rounded-3xl bg-white p-8 shadow-xl" data-reveal>
                 <div class="flex gap-1 text-amber-400">
@@ -157,13 +157,13 @@
     <div class="relative">
         <x-section-title eyebrow="From the blog" title="Health Articles & Clinic News" copy="Read the latest updates and health advice from our practice." />
         <div class="mx-auto mt-6 h-px w-16 bg-brand-green"></div>
-        <div class="mx-auto mt-8 grid max-w-6xl gap-5 md:grid-cols-3">
+        <div class="reveal-stagger mx-auto mt-8 grid max-w-6xl gap-5 md:grid-cols-3">
             @foreach($latestPosts->take(3) as $post)
                 <x-post-card :post="$post" />
             @endforeach
         </div>
         <div class="mt-6 text-center">
-            <a href="{{ route('blog.index') }}" class="inline-flex items-center gap-2 font-semibold text-brand-blue">
+            <a href="{{ route('blog.index') }}" class="inline-flex items-center gap-2 font-semibold text-brand-blue transition-transform duration-200 hover:translate-x-1">
                 View All Posts
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
@@ -175,13 +175,13 @@
 @if($services->isNotEmpty())
 <section class="relative isolate overflow-hidden px-6 py-24" style="background-image: linear-gradient(rgba(255,255,255,.25), rgba(255,255,255,.25)), url('{{ asset('images/faq-consult.jpg') }}'); background-size: cover; background-position: center;">
     <x-section-title eyebrow="Our Services" title="Comprehensive Care for Your Whole Family" copy="From preventive care to specialist referrals, we provide a full spectrum of medical services tailored to meet the diverse needs of our community." :nowrap="true" />
-    <div class="mx-auto mt-10 grid max-w-6xl gap-5 md:grid-cols-3">
+    <div class="reveal-stagger mx-auto mt-10 grid max-w-6xl gap-5 md:grid-cols-3">
         @foreach($services as $service)
             <x-service-card :service="$service" />
         @endforeach
     </div>
     <div class="mt-8 text-center">
-        <a href="{{ route('services.index') }}" class="inline-flex items-center gap-2 font-semibold text-brand-blue">
+        <a href="{{ route('services.index') }}" class="inline-flex items-center gap-2 font-semibold text-brand-blue transition-transform duration-200 hover:translate-x-1">
             View All Services
             <svg xmlns="http://www.w3.org/2000/svg" class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
@@ -199,7 +199,7 @@
         <div class="text-center">
             <p class="font-semibold text-[#062238]">Have more questions? We're happy to help.</p>
             <div class="mt-5 flex flex-wrap items-center justify-center gap-4">
-                <a href="{{ route('faq') }}" class="inline-flex items-center gap-2 rounded-2xl border border-black px-6 py-3 font-semibold text-black">
+                <a href="{{ route('faq') }}" class="btn-lift inline-flex items-center gap-2 rounded-2xl border border-black px-6 py-3 font-semibold text-black">
                     View All FAQs
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
@@ -217,7 +217,7 @@
     <x-section-title eyebrow="Get in Touch" title="Visit Us or Send a Message" copy="We're always happy to hear from you. Reach out with any questions or to find out more about our services." />
 
     <div class="mx-auto mt-14 grid max-w-6xl gap-8 md:grid-cols-2">
-        <div>
+        <div data-reveal>
             <div class="relative overflow-hidden rounded-3xl shadow-xl">
                 <iframe
                     src="{{ setting('google_map_embed') ?: 'https://www.google.com/maps?q=' . urlencode(setting('address_suburb', 'Cringila NSW 2502, Australia')) . '&output=embed' }}"
@@ -229,7 +229,7 @@
                 <a
                     href="https://www.google.com/maps/search/?api=1&query={{ urlencode(setting('address_suburb', 'Cringila NSW 2502')) }}"
                     target="_blank" rel="noopener"
-                    class="absolute left-4 top-4 inline-flex items-center gap-2 rounded-xl bg-white px-4 py-2 text-sm font-semibold text-brand-blue shadow-md"
+                    class="btn-lift absolute left-4 top-4 inline-flex items-center gap-2 rounded-xl bg-white px-4 py-2 text-sm font-semibold text-brand-blue shadow-md"
                 >
                     Open in Maps
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></svg>
@@ -289,7 +289,7 @@
             </div>
         </div>
 
-        <div class="rounded-3xl bg-white p-8 shadow-xl">
+        <div class="rounded-3xl bg-white p-8 shadow-xl" data-reveal>
             <h2 class="font-serif text-3xl font-bold">Send Us a Message</h2>
 
             @if(session('status'))
