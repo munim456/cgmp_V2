@@ -57,11 +57,8 @@
                 <span class="hidden text-blue-100 sm:inline">{{ setting('clinic_name') }}</span>
             </span>
             <span class="flex items-center gap-4">
-                <b class="text-[#ffd7d7]">
-                    &#9679;
-                    <span class="hidden sm:inline">{{ setting('emergency_note', 'In a medical emergency, call 000.') }}</span>
-                    <span class="sm:hidden">Emergency? Call 000</span>
-                </b>
+                <b class="hidden text-[#ffd7d7] sm:inline">&#9679; {{ setting('emergency_note', 'In a medical emergency, call 000.') }}</b>
+                <a href="{{ booking_url() }}" @if(booking_is_external()) target="_blank" rel="noopener" @endif class="rounded-full bg-brand-green px-3 py-1 text-xs font-semibold text-white transition-colors hover:bg-brand-green-dark">Book Online</a>
             </span>
         </div>
     </div>
