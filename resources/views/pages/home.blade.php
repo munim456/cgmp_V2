@@ -5,14 +5,8 @@
 @section('content')
 
 <section class="relative isolate overflow-hidden bg-brand-blue text-white">
-    <div class="relative mx-auto lg:aspect-[11/4]">
-        <div class="absolute inset-0 lg:right-0 lg:left-auto lg:w-1/2">
-            <img src="{{ image_url($hero['image'] ?? null, 'images/hero-team-11x4.jpg') }}" alt="Our clinic team" class="absolute inset-0 h-full w-full object-cover">
-            <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-brand-blue/92 via-brand-blue/80 to-brand-blue/92 lg:hidden"></div>
-            <div class="pointer-events-none absolute inset-y-0 left-0 hidden w-24 bg-gradient-to-r from-brand-blue to-transparent lg:block"></div>
-            <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-brand-blue/15 via-transparent to-transparent hidden lg:block"></div>
-        </div>
-        <div class="relative z-10 flex items-center overflow-hidden px-6 py-16 lg:absolute lg:inset-y-0 lg:left-0 lg:w-1/2 lg:px-[3vw] lg:py-[1vw]">
+    <div class="relative mx-auto flex flex-col lg:block lg:aspect-[11/4]">
+        <div class="relative z-10 order-2 flex items-center overflow-hidden px-6 py-16 lg:absolute lg:inset-y-0 lg:left-0 lg:order-1 lg:w-1/2 lg:px-[3vw] lg:py-[1vw]">
             <div class="hero-circle pointer-events-none absolute -right-16 top-1/2 hidden h-72 w-72 -translate-y-1/2 rounded-full border border-white/10 lg:block"></div>
             <div class="hero-circle pointer-events-none absolute -right-32 top-1/3 hidden h-56 w-56 -translate-y-1/2 rounded-full border border-white/10 lg:block" style="animation-delay: 1.3s"></div>
             <div class="relative max-w-[560px] lg:max-w-[42vw]">
@@ -44,6 +38,12 @@
                     <span class="rounded-full border border-blue-300/40 bg-blue-500/20 px-3 py-1.5 lg:px-[0.9vw] lg:py-[0.45vw]">{{ setting('address_line1') }}, {{ setting('address_suburb') }}</span>
                 </div>
             </div>
+        </div>
+        <div class="relative order-1 min-h-[280px] overflow-hidden lg:absolute lg:inset-y-0 lg:right-0 lg:order-2 lg:min-h-0 lg:w-1/2">
+            <img src="{{ image_url($hero['image'] ?? null, 'images/hero-team-11x4.jpg') }}" alt="Our clinic team" class="absolute inset-0 h-full w-full object-cover">
+            <div class="pointer-events-none absolute inset-y-0 left-0 hidden w-24 bg-gradient-to-r from-brand-blue to-transparent lg:block"></div>
+            <div class="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-brand-blue/40 to-transparent lg:hidden"></div>
+            <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-brand-blue/15 via-transparent to-transparent"></div>
         </div>
     </div>
 </section>
