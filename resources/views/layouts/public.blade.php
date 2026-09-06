@@ -50,14 +50,18 @@
     {!! setting('analytics_code') !!}
 </head>
 <body class="bg-white font-sans antialiased" x-data>
-    <div class="hidden bg-[#007ba7] text-sm text-white md:block">
-        <div class="mx-auto flex max-w-6xl justify-between px-6 py-2">
-            <span>
-                <a href="tel:{{ preg_replace('/\s+/', '', setting('phone', '')) }}" class="mr-5 hover:underline">{{ setting('phone') }}</a>
-                <span class="text-blue-100">{{ setting('clinic_name') }}</span>
+    <div class="bg-[#007ba7] text-xs text-white sm:text-sm">
+        <div class="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-2 sm:px-6">
+            <span class="flex items-center gap-2 sm:gap-5">
+                <a href="tel:{{ preg_replace('/\s+/', '', setting('phone', '')) }}" class="hover:underline">{{ setting('phone') }}</a>
+                <span class="hidden text-blue-100 sm:inline">{{ setting('clinic_name') }}</span>
             </span>
             <span class="flex items-center gap-4">
-                <b class="text-[#ffd7d7]">&#9679; {{ setting('emergency_note', 'In a medical emergency, call 000.') }}</b>
+                <b class="text-[#ffd7d7]">
+                    &#9679;
+                    <span class="hidden sm:inline">{{ setting('emergency_note', 'In a medical emergency, call 000.') }}</span>
+                    <span class="sm:hidden">Emergency? Call 000</span>
+                </b>
             </span>
         </div>
     </div>

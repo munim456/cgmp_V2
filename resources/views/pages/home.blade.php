@@ -5,45 +5,45 @@
 @section('content')
 
 <section class="relative isolate overflow-hidden bg-brand-blue text-white">
-    <div class="relative mx-auto md:aspect-[11/4]">
-        <div class="relative z-10 flex items-center overflow-hidden px-6 py-16 md:absolute md:inset-y-0 md:left-0 md:w-1/2 md:px-[3vw] md:py-[1vw]">
-            <div class="hero-circle pointer-events-none absolute -right-16 top-1/2 hidden h-72 w-72 -translate-y-1/2 rounded-full border border-white/10 md:block"></div>
-            <div class="hero-circle pointer-events-none absolute -right-32 top-1/3 hidden h-56 w-56 -translate-y-1/2 rounded-full border border-white/10 md:block" style="animation-delay: 1.3s"></div>
-            <div class="relative max-w-[560px] md:max-w-[42vw]">
+    <div class="relative mx-auto lg:aspect-[11/4]">
+        <div class="absolute inset-0 lg:right-0 lg:left-auto lg:w-1/2">
+            <img src="{{ image_url($hero['image'] ?? null, 'images/hero-team-11x4.jpg') }}" alt="Our clinic team" class="absolute inset-0 h-full w-full object-cover">
+            <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-brand-blue/92 via-brand-blue/80 to-brand-blue/92 lg:hidden"></div>
+            <div class="pointer-events-none absolute inset-y-0 left-0 hidden w-24 bg-gradient-to-r from-brand-blue to-transparent lg:block"></div>
+            <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-brand-blue/15 via-transparent to-transparent hidden lg:block"></div>
+        </div>
+        <div class="relative z-10 flex items-center overflow-hidden px-6 py-16 lg:absolute lg:inset-y-0 lg:left-0 lg:w-1/2 lg:px-[3vw] lg:py-[1vw]">
+            <div class="hero-circle pointer-events-none absolute -right-16 top-1/2 hidden h-72 w-72 -translate-y-1/2 rounded-full border border-white/10 lg:block"></div>
+            <div class="hero-circle pointer-events-none absolute -right-32 top-1/3 hidden h-56 w-56 -translate-y-1/2 rounded-full border border-white/10 lg:block" style="animation-delay: 1.3s"></div>
+            <div class="relative max-w-[560px] lg:max-w-[42vw]">
                 @if(!empty($hero['badge_text']))
-                    <p class="font-serif font-bold uppercase leading-tight text-brand-green text-3xl md:text-[clamp(1rem,2.6vw,2.25rem)]">{{ $hero['badge_text'] }}</p>
+                    <p class="font-serif font-bold uppercase leading-tight text-brand-green text-3xl lg:text-[clamp(1rem,2.6vw,2.25rem)]">{{ $hero['badge_text'] }}</p>
                 @endif
-                <h1 class="font-serif font-bold mt-4 text-3xl md:mt-[1vw] md:text-[clamp(1.15rem,3.4vw,3rem)]">{{ $hero['heading'] ?? 'Welcome to ' . setting('clinic_name') }}</h1>
-                <p class="leading-7 text-blue-50 mt-4 text-base md:mt-[0.8vw] md:text-[clamp(0.7rem,1.1vw,1.125rem)] md:leading-[1.5]">{{ $hero['subheading'] ?? '' }}</p>
+                <h1 class="font-serif font-bold mt-4 text-3xl lg:mt-[1vw] lg:text-[clamp(1.15rem,3.4vw,3rem)]">{{ $hero['heading'] ?? 'Welcome to ' . setting('clinic_name') }}</h1>
+                <p class="leading-7 text-blue-50 mt-4 text-base lg:mt-[0.8vw] lg:text-[clamp(0.7rem,1.1vw,1.125rem)] lg:leading-[1.5]">{{ $hero['subheading'] ?? '' }}</p>
                 @php
                     $heroPrimaryIsDefault = empty($hero['primary_button_link']) || $hero['primary_button_link'] === '/book-appointment';
                     $heroPrimaryHref = $heroPrimaryIsDefault ? booking_url() : $hero['primary_button_link'];
                 @endphp
-                <div class="flex flex-wrap gap-4 mt-6 md:mt-[1.2vw] md:gap-[1vw]">
-                    <a href="{{ $heroPrimaryHref }}" @if($heroPrimaryIsDefault && booking_is_external()) target="_blank" rel="noopener" @endif class="btn-lift inline-flex items-center gap-3 rounded-2xl bg-brand-green font-bold text-white shadow-lg hover:bg-brand-green-dark px-7 py-5 md:gap-[0.6vw] md:px-[1.6vw] md:py-[1vw] md:text-[clamp(0.7rem,1.05vw,1rem)]">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-[1.4vw] md:w-[1.4vw]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                <div class="flex flex-wrap gap-4 mt-6 lg:mt-[1.2vw] lg:gap-[1vw]">
+                    <a href="{{ $heroPrimaryHref }}" @if($heroPrimaryIsDefault && booking_is_external()) target="_blank" rel="noopener" @endif class="btn-lift inline-flex items-center gap-3 rounded-2xl bg-brand-green font-bold text-white shadow-lg hover:bg-brand-green-dark px-7 py-5 lg:gap-[0.6vw] lg:px-[1.6vw] lg:py-[1vw] lg:text-[clamp(0.7rem,1.05vw,1rem)]">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 lg:h-[1.4vw] lg:w-[1.4vw]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
                         {{ $hero['primary_button_text'] ?? 'Book Appointment' }}
                     </a>
-                    <a href="tel:{{ preg_replace('/\s+/', '', setting('phone', '')) }}" class="btn-lift inline-flex items-center gap-3 rounded-2xl border border-blue-300/60 hover:bg-white/10 px-7 py-5 md:gap-[0.6vw] md:px-[1.6vw] md:py-[1vw] md:text-[clamp(0.7rem,1.05vw,1rem)]">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-[1.4vw] md:w-[1.4vw]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <a href="tel:{{ preg_replace('/\s+/', '', setting('phone', '')) }}" class="btn-lift inline-flex items-center gap-3 rounded-2xl border border-blue-300/60 hover:bg-white/10 px-7 py-5 lg:gap-[0.6vw] lg:px-[1.6vw] lg:py-[1vw] lg:text-[clamp(0.7rem,1.05vw,1rem)]">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 lg:h-[1.4vw] lg:w-[1.4vw]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                         {{ setting('phone') }}
                     </a>
                 </div>
-                <div class="flex flex-wrap gap-2 mt-4 text-xs md:mt-[0.8vw] md:gap-[0.5vw] md:text-[clamp(0.6rem,0.85vw,0.875rem)]">
+                <div class="flex flex-wrap gap-2 mt-4 text-xs lg:mt-[0.8vw] lg:gap-[0.5vw] lg:text-[clamp(0.6rem,0.85vw,0.875rem)]">
                     @foreach(preg_split('/\r\n|\r|\n/', trim(setting('opening_hours', ''))) as $line)
                         @if(trim($line) !== '')
-                            <span class="rounded-full border border-blue-300/40 bg-blue-500/20 px-3 py-1.5 md:px-[0.9vw] md:py-[0.45vw]">{{ trim($line) }}</span>
+                            <span class="rounded-full border border-blue-300/40 bg-blue-500/20 px-3 py-1.5 lg:px-[0.9vw] lg:py-[0.45vw]">{{ trim($line) }}</span>
                         @endif
                     @endforeach
-                    <span class="rounded-full border border-blue-300/40 bg-blue-500/20 px-3 py-1.5 md:px-[0.9vw] md:py-[0.45vw]">{{ setting('address_line1') }}, {{ setting('address_suburb') }}</span>
+                    <span class="rounded-full border border-blue-300/40 bg-blue-500/20 px-3 py-1.5 lg:px-[0.9vw] lg:py-[0.45vw]">{{ setting('address_line1') }}, {{ setting('address_suburb') }}</span>
                 </div>
             </div>
-        </div>
-        <div class="relative min-h-[280px] overflow-hidden md:absolute md:inset-y-0 md:right-0 md:min-h-0 md:w-1/2">
-            <img src="{{ image_url($hero['image'] ?? null, 'images/hero-team-11x4.jpg') }}" alt="Our clinic team" class="absolute inset-0 h-full w-full object-cover">
-            <div class="pointer-events-none absolute inset-y-0 left-0 hidden w-24 bg-gradient-to-r from-brand-blue to-transparent md:block"></div>
-            <div class="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-brand-blue/40 to-transparent md:hidden"></div>
-            <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-brand-blue/15 via-transparent to-transparent"></div>
         </div>
     </div>
 </section>
