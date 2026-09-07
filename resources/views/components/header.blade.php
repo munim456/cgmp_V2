@@ -10,7 +10,7 @@
 @endphp
 
 <div x-data="{ open: false }">
-    <header id="site-header" class="border-b border-slate-200 bg-white/95 backdrop-blur">
+    <header id="site-header" class="border-b border-slate-200 bg-white shadow-sm">
         <div class="flex items-center justify-between py-4 pl-4 pr-6 site-header__inner">
             <a href="{{ route('home') }}"><x-logo /></a>
 
