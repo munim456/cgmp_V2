@@ -32,10 +32,16 @@
                 <div class="flex flex-wrap gap-2 mt-4 text-xs lg:mt-[0.8vw] lg:gap-[0.5vw] lg:text-[clamp(0.6rem,0.85vw,0.875rem)]">
                     @foreach(preg_split('/\r\n|\r|\n/', trim(setting('opening_hours', ''))) as $line)
                         @if(trim($line) !== '')
-                            <span class="rounded-full border border-blue-300/40 bg-blue-500/20 px-3 py-1.5 lg:px-[0.9vw] lg:py-[0.45vw]">{{ trim($line) }}</span>
+                            <span class="inline-flex items-center gap-1.5 rounded-full border border-blue-300/40 bg-blue-500/20 px-3 py-1.5 lg:px-[0.9vw] lg:py-[0.45vw]">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                                {{ trim($line) }}
+                            </span>
                         @endif
                     @endforeach
-                    <span class="rounded-full border border-blue-300/40 bg-blue-500/20 px-3 py-1.5 lg:px-[0.9vw] lg:py-[0.45vw]">{{ setting('address_line1') }}, {{ setting('address_suburb') }}</span>
+                    <span class="inline-flex items-center gap-1.5 rounded-full border border-blue-300/40 bg-blue-500/20 px-3 py-1.5 lg:px-[0.9vw] lg:py-[0.45vw]">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        {{ setting('address_line1') }}, {{ setting('address_suburb') }}
+                    </span>
                 </div>
             </div>
         </div>
