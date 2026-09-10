@@ -23,7 +23,7 @@
                     @if($heroHeadingLead !== '')
                         {{ $heroHeadingLead }}
                     @endif
-                    <span class="text-brand-green underline decoration-2 underline-offset-4">{{ $heroHeadingHighlight }}</span>
+                    <span class="text-brand-green underline decoration-2 underline-offset-4 lg:text-white lg:no-underline">{{ $heroHeadingHighlight }}</span>
                 </h1>
                 <p class="leading-6 text-blue-50 mt-4 text-sm lg:mt-[0.8vw] lg:leading-[1.5] lg:text-[clamp(0.7rem,1.1vw,1.125rem)]">{{ $hero['subheading'] ?? '' }}</p>
                 @php
