@@ -13,8 +13,8 @@
                 @if(!empty($hero['badge_text']))
                     <p class="whitespace-nowrap lg:whitespace-normal font-serif font-bold uppercase leading-tight tracking-normal text-brand-green text-[3.6vw] sm:text-base lg:text-[clamp(1rem,2.6vw,2.25rem)]">{{ $hero['badge_text'] }}</p>
                 @endif
-                <h1 class="whitespace-nowrap lg:whitespace-normal font-serif font-bold mt-4 text-[clamp(1rem,4.5vw,1.875rem)] lg:mt-[1vw] lg:text-[clamp(1.15rem,3.4vw,3rem)]">{{ $hero['heading'] ?? 'Welcome to ' . setting('clinic_name') }}</h1>
-                <p class="leading-7 text-blue-50 mt-4 text-base lg:mt-[0.8vw] lg:text-[clamp(0.7rem,1.1vw,1.125rem)] lg:leading-[1.5]">{{ $hero['subheading'] ?? '' }}</p>
+                <h1 class="font-serif font-bold mt-4 text-3xl lg:mt-[1vw] lg:text-[clamp(1.15rem,3.4vw,3rem)]">{{ $hero['heading'] ?? 'Welcome to ' . setting('clinic_name') }}</h1>
+                <p class="leading-6 text-blue-50 mt-4 text-sm lg:mt-[0.8vw] lg:leading-[1.5] lg:text-[clamp(0.7rem,1.1vw,1.125rem)]">{{ $hero['subheading'] ?? '' }}</p>
                 @php
                     $heroPrimaryIsDefault = empty($hero['primary_button_link']) || $hero['primary_button_link'] === '/book-appointment';
                     $heroPrimaryHref = $heroPrimaryIsDefault ? booking_url() : $hero['primary_button_link'];
