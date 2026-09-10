@@ -13,7 +13,18 @@
                 @if(!empty($hero['badge_text']))
                     <p class="whitespace-nowrap lg:whitespace-normal font-serif font-bold uppercase leading-tight tracking-normal text-brand-green text-[3.6vw] sm:text-base lg:text-[clamp(1rem,2.6vw,2.25rem)]">{{ $hero['badge_text'] }}</p>
                 @endif
-                <h1 class="font-serif font-bold mt-4 text-3xl lg:mt-[1vw] lg:text-[clamp(1.15rem,3.4vw,3rem)]">{{ $hero['heading'] ?? 'Welcome to ' . setting('clinic_name') }}</h1>
+                @php
+                    $heroHeadingText = $hero['heading'] ?? 'Welcome to ' . setting('clinic_name');
+                    $heroHeadingWords = preg_split('/\s+/', trim($heroHeadingText));
+                    $heroHeadingHighlight = implode(' ', array_slice($heroHeadingWords, -2));
+                    $heroHeadingLead = implode(' ', array_slice($heroHeadingWords, 0, -2));
+                @endphp
+                <h1 class="whitespace-nowrap lg:whitespace-normal font-serif font-bold mt-4 text-2xl lg:mt-[1vw] lg:text-[clamp(1.15rem,3.4vw,3rem)]">
+                    @if($heroHeadingLead !== '')
+                        {{ $heroHeadingLead }}
+                    @endif
+                    <span class="text-brand-green underline decoration-2 underline-offset-4">{{ $heroHeadingHighlight }}</span>
+                </h1>
                 <p class="leading-6 text-blue-50 mt-4 text-sm lg:mt-[0.8vw] lg:leading-[1.5] lg:text-[clamp(0.7rem,1.1vw,1.125rem)]">{{ $hero['subheading'] ?? '' }}</p>
                 @php
                     $heroPrimaryIsDefault = empty($hero['primary_button_link']) || $hero['primary_button_link'] === '/book-appointment';
