@@ -4,7 +4,7 @@
 
 @section('content')
 
-<section class="relative isolate overflow-hidden bg-brand-blue text-white lg:bg-[#0A4D8C]">
+<section class="relative isolate mt-3 overflow-hidden rounded-t-3xl bg-brand-blue text-white lg:mt-0 lg:rounded-none lg:bg-[#0A4D8C]">
     <div class="relative mx-auto flex flex-col lg:block lg:aspect-[11/4]">
         <div class="relative z-10 order-2 flex items-center overflow-hidden px-6 py-16 lg:absolute lg:inset-y-0 lg:left-0 lg:order-1 lg:w-1/2 lg:px-[3vw] lg:py-[1vw]">
             <div class="hero-circle pointer-events-none absolute -right-16 top-1/2 hidden h-72 w-72 -translate-y-1/2 rounded-full border border-white/10 lg:block"></div>
