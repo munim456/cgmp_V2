@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-AU" class="bg-[#007ba7]">
+<html lang="en-AU" class="bg-[#1B72B5]">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -50,7 +50,7 @@
     {!! setting('analytics_code') !!}
 </head>
 <body class="bg-white font-sans antialiased" x-data>
-    <div class="bg-[#007ba7] text-xs text-white sm:text-sm">
+    <div class="bg-[#1B72B5] text-xs text-white sm:text-sm">
         <div class="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-2 sm:px-6">
             <span class="flex items-center gap-2 sm:gap-5">
                 <a href="tel:{{ preg_replace('/\s+/', '', setting('phone', '')) }}" class="hover:underline">{{ setting('phone') }}</a>
