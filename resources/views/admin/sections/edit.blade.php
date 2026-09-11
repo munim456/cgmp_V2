@@ -136,5 +136,30 @@
             <div><button type="submit" class="rounded-lg bg-brand-blue px-5 py-2 font-semibold text-white">Save Navigation</button></div>
         </form>
     </div>
+
+    <div class="rounded-xl bg-white p-6 shadow-sm">
+        <h2 class="text-lg font-bold">Footer Links (Quick Links)</h2>
+        <p class="mt-1 text-sm text-gray-500">One link per line, in the format: <code>Label | URL</code>. Example: <code>About | /about</code></p>
+        <form method="POST" action="{{ route('admin.sections.footer-links') }}" class="mt-4 grid gap-4">
+            @csrf @method('PUT')
+            <label class="block">
+                <span class="text-sm font-semibold">Footer links</span>
+                @php
+                    $defaultFooterLinks = [
+                        ['label' => 'About', 'url' => route('about')],
+                        ['label' => 'Services', 'url' => route('services.index')],
+                        ['label' => 'Doctors', 'url' => route('doctors')],
+                        ['label' => 'Blog', 'url' => route('blog.index')],
+                        ['label' => 'FAQ', 'url' => route('faq')],
+                        ['label' => 'Contact', 'url' => route('contact')],
+                        ['label' => 'Emergency', 'url' => route('emergency')],
+                    ];
+                    $footerLinksForDisplay = $footerLinks['items'] ?? $defaultFooterLinks;
+                @endphp
+                <textarea name="items" class="mt-1 w-full rounded-lg border-gray-300 font-mono text-sm" rows="7">{{ old('items', collect($footerLinksForDisplay)->map(fn ($i) => "{$i['label']} | {$i['url']}")->implode("\n")) }}</textarea>
+            </label>
+            <div><button type="submit" class="rounded-lg bg-brand-blue px-5 py-2 font-semibold text-white">Save Footer Links</button></div>
+        </form>
+    </div>
 </div>
 @endsection

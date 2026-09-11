@@ -8,16 +8,26 @@
             @endif
         </div>
 
+        @php
+            $configuredFooterLinks = section_data('footer_links')['items'] ?? [];
+            $footerLinks = count($configuredFooterLinks)
+                ? $configuredFooterLinks
+                : [
+                    ['label' => 'About', 'url' => route('about')],
+                    ['label' => 'Services', 'url' => route('services.index')],
+                    ['label' => 'Doctors', 'url' => route('doctors')],
+                    ['label' => 'Blog', 'url' => route('blog.index')],
+                    ['label' => 'FAQ', 'url' => route('faq')],
+                    ['label' => 'Contact', 'url' => route('contact')],
+                    ['label' => 'Emergency', 'url' => route('emergency')],
+                ];
+        @endphp
         <div>
             <h3 class="font-serif text-xl text-white">Quick Links</h3>
             <div class="mt-6 grid gap-3">
-                <a href="{{ route('about') }}" class="w-fit transition-colors duration-200 hover:text-white">About</a>
-                <a href="{{ route('services.index') }}" class="w-fit transition-colors duration-200 hover:text-white">Services</a>
-                <a href="{{ route('doctors') }}" class="w-fit transition-colors duration-200 hover:text-white">Doctors</a>
-                <a href="{{ route('blog.index') }}" class="w-fit transition-colors duration-200 hover:text-white">Blog</a>
-                <a href="{{ route('faq') }}" class="w-fit transition-colors duration-200 hover:text-white">FAQ</a>
-                <a href="{{ route('contact') }}" class="w-fit transition-colors duration-200 hover:text-white">Contact</a>
-                <a href="{{ route('emergency') }}" class="w-fit transition-colors duration-200 hover:text-white">Emergency</a>
+                @foreach($footerLinks as $link)
+                    <a href="{{ $link['url'] }}" class="w-fit transition-colors duration-200 hover:text-white">{{ $link['label'] }}</a>
+                @endforeach
             </div>
         </div>
 

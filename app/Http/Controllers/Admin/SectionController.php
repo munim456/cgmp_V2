@@ -19,6 +19,7 @@ class SectionController extends Controller
             'bookingStrip' => section_data('booking_strip'),
             'nearestHospitals' => section_data('nearest_hospitals'),
             'navigation' => section_data('navigation'),
+            'footerLinks' => section_data('footer_links'),
         ]);
     }
 
@@ -127,11 +128,25 @@ class SectionController extends Controller
 
     public function updateNavigation(Request $request): RedirectResponse
     {
+        Section::store('navigation', ['items' => $this->parseLinkLines($request, 'items')]);
+
+        return redirect()->route('admin.sections.edit')->with('status', 'Navigation menu updated.');
+    }
+
+    public function updateFooterLinks(Request $request): RedirectResponse
+    {
+        Section::store('footer_links', ['items' => $this->parseLinkLines($request, 'items')]);
+
+        return redirect()->route('admin.sections.edit')->with('status', 'Footer links updated.');
+    }
+
+    private function parseLinkLines(Request $request, string $field): array
+    {
         $data = $request->validate([
-            'items' => ['nullable', 'string'],
+            $field => ['nullable', 'string'],
         ]);
 
-        $items = collect(explode("\n", (string) ($data['items'] ?? '')))
+        return collect(explode("\n", (string) ($data[$field] ?? '')))
             ->map(fn ($line) => trim($line))
             ->filter()
             ->map(function ($line) {
@@ -145,9 +160,5 @@ class SectionController extends Controller
             ->filter(fn ($item) => $item['label'] !== '' && $item['url'] !== '')
             ->values()
             ->all();
-
-        Section::store('navigation', ['items' => $items]);
-
-        return redirect()->route('admin.sections.edit')->with('status', 'Navigation menu updated.');
     }
 }
