@@ -19,7 +19,7 @@
                     $heroHeadingHighlight = implode(' ', array_slice($heroHeadingWords, -2));
                     $heroHeadingLead = implode(' ', array_slice($heroHeadingWords, 0, -2));
                 @endphp
-                <h1 style="{{ text_style($hero['styles'] ?? null, 'heading') }}" class="font-serif font-bold mt-4 text-2xl leading-tight lg:mt-[1vw] lg:whitespace-normal lg:text-[clamp(1rem,2.6vw,2.25rem)]">
+                <h1 style="{{ text_style($hero['styles'] ?? null, 'heading') }}" class="font-serif font-bold mt-4 whitespace-nowrap text-[4vw] leading-tight sm:whitespace-normal sm:text-2xl lg:mt-[1vw] lg:whitespace-normal lg:text-[clamp(1rem,2.6vw,2.25rem)]">
                     @if($heroHeadingLead !== '')
                         {{ $heroHeadingLead }}
                     @endif
