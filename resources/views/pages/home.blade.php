@@ -11,7 +11,7 @@
             <div class="hero-circle pointer-events-none absolute -right-32 top-1/3 hidden h-56 w-56 -translate-y-1/2 rounded-full border border-white/10 lg:block" style="animation-delay: 1.3s"></div>
             <div class="relative max-w-[560px] lg:max-w-[42vw]">
                 @if(!empty($hero['badge_text']))
-                    <p class="whitespace-nowrap lg:whitespace-normal font-serif font-bold uppercase leading-tight lg:leading-[1.35] tracking-normal text-brand-green text-[3.6vw] sm:text-base lg:text-[clamp(1.5rem,3.4vw,3rem)]">{{ $hero['badge_text'] }}</p>
+                    <p class="whitespace-nowrap lg:whitespace-normal font-serif font-bold uppercase leading-tight lg:leading-[1.35] tracking-normal text-brand-green text-[3.6vw] sm:text-base lg:text-[clamp(1.25rem,2.4vw,2.25rem)]">{{ $hero['badge_text'] }}</p>
                 @endif
                 @php
                     $heroHeadingText = $hero['heading'] ?? 'Welcome to ' . setting('clinic_name');
