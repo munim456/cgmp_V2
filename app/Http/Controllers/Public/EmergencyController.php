@@ -9,6 +9,8 @@ class EmergencyController extends Controller
 {
     public function __invoke(): View
     {
-        return view('pages.emergency');
+        return view('pages.emergency', [
+            'hospitals' => section_data('nearest_hospitals')['hospitals'] ?? [],
+        ]);
     }
 }

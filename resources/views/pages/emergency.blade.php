@@ -65,5 +65,32 @@
             @endforeach
         </div>
     </div>
+
+    <div class="mx-auto mt-8 max-w-4xl rounded-2xl border border-[#e7edf3] p-6 shadow-sm sm:p-8">
+        <div class="flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <h2 class="font-serif text-lg font-bold text-[#062238]">Nearest Hospitals</h2>
+        </div>
+        <div class="mt-5 grid gap-3">
+            @forelse($hospitals as $hospital)
+                <div class="rounded-xl bg-brand-green-tint px-4 py-3">
+                    <div class="flex items-center justify-between gap-3">
+                        <span class="font-bold text-[#062238]">{{ $hospital['name'] }}</span>
+                        @if(!empty($hospital['distance']))
+                            <span class="shrink-0 rounded-full bg-purple-100 px-3 py-1 text-xs font-bold text-purple-700">~{{ $hospital['distance'] }}</span>
+                        @endif
+                    </div>
+                    @if(!empty($hospital['address']))
+                        <p class="mt-1 text-sm text-[#45627d]">{{ $hospital['address'] }}</p>
+                    @endif
+                    @if(!empty($hospital['phone']))
+                        <a href="tel:{{ preg_replace('/\s+/', '', $hospital['phone']) }}" class="mt-1 block text-sm font-semibold text-brand-blue hover:underline">{{ $hospital['phone'] }}</a>
+                    @endif
+                </div>
+            @empty
+                <p class="text-sm text-[#45627d]">Hospital details haven't been added yet &mdash; add your nearest hospitals from Admin &rarr; Sections.</p>
+            @endforelse
+        </div>
+    </div>
 </section>
 @endsection

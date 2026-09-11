@@ -99,5 +99,18 @@
             <div><button type="submit" class="rounded-lg bg-brand-blue px-5 py-2 font-semibold text-white">Save Booking Strip</button></div>
         </form>
     </div>
+
+    <div class="rounded-xl bg-white p-6 shadow-sm">
+        <h2 class="text-lg font-bold">Nearest Hospitals (Emergency page)</h2>
+        <p class="mt-1 text-sm text-gray-500">One hospital per line, in the format: <code>Name | Distance | Address | Phone</code>. Example: <code>Wollongong Hospital | 5km | Loftus St, Wollongong NSW 2500 | (02) 4222 5000</code></p>
+        <form method="POST" action="{{ route('admin.sections.nearest-hospitals') }}" class="mt-4 grid gap-4">
+            @csrf @method('PUT')
+            <label class="block">
+                <span class="text-sm font-semibold">Hospitals</span>
+                <textarea name="hospitals" class="mt-1 w-full rounded-lg border-gray-300 font-mono text-sm" rows="4">{{ old('hospitals', collect($nearestHospitals['hospitals'] ?? [])->map(fn ($h) => "{$h['name']} | {$h['distance']} | {$h['address']} | {$h['phone']}")->implode("\n")) }}</textarea>
+            </label>
+            <div><button type="submit" class="rounded-lg bg-brand-blue px-5 py-2 font-semibold text-white">Save Hospitals</button></div>
+        </form>
+    </div>
 </div>
 @endsection
