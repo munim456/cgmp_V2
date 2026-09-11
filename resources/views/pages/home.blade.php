@@ -4,14 +4,14 @@
 
 @section('content')
 
-<section class="relative isolate overflow-hidden bg-brand-blue text-white">
+<section class="relative isolate overflow-hidden bg-brand-blue text-white lg:bg-[#0A4D8C]">
     <div class="relative mx-auto flex flex-col lg:block lg:aspect-[11/4]">
         <div class="relative z-10 order-2 flex items-center overflow-hidden px-6 py-16 lg:absolute lg:inset-y-0 lg:left-0 lg:order-1 lg:w-1/2 lg:px-[3vw] lg:py-[1vw]">
             <div class="hero-circle pointer-events-none absolute -right-16 top-1/2 hidden h-72 w-72 -translate-y-1/2 rounded-full border border-white/10 lg:block"></div>
             <div class="hero-circle pointer-events-none absolute -right-32 top-1/3 hidden h-56 w-56 -translate-y-1/2 rounded-full border border-white/10 lg:block" style="animation-delay: 1.3s"></div>
             <div class="relative max-w-[560px] lg:max-w-[42vw]">
                 @if(!empty($hero['badge_text']))
-                    <p class="whitespace-nowrap lg:whitespace-normal font-serif font-bold uppercase leading-tight tracking-normal text-brand-green text-[3.6vw] sm:text-base lg:text-[clamp(1rem,2.6vw,2.25rem)]">{{ $hero['badge_text'] }}</p>
+                    <p class="whitespace-nowrap lg:whitespace-normal font-serif font-bold uppercase leading-tight lg:leading-[1.35] tracking-normal text-brand-green text-[3.6vw] sm:text-base lg:text-[clamp(1.5rem,3.4vw,3rem)]">{{ $hero['badge_text'] }}</p>
                 @endif
                 @php
                     $heroHeadingText = $hero['heading'] ?? 'Welcome to ' . setting('clinic_name');
@@ -19,13 +19,13 @@
                     $heroHeadingHighlight = implode(' ', array_slice($heroHeadingWords, -2));
                     $heroHeadingLead = implode(' ', array_slice($heroHeadingWords, 0, -2));
                 @endphp
-                <h1 class="whitespace-nowrap lg:whitespace-normal font-serif font-bold mt-4 text-2xl lg:mt-[1vw] lg:text-[clamp(1.15rem,3.4vw,3rem)]">
+                <h1 class="whitespace-nowrap lg:whitespace-normal font-serif font-bold mt-4 text-2xl lg:mt-[1vw] lg:text-[clamp(1rem,2.6vw,2.25rem)]">
                     @if($heroHeadingLead !== '')
                         {{ $heroHeadingLead }}
                     @endif
                     <span class="text-brand-green underline decoration-2 underline-offset-4">{{ $heroHeadingHighlight }}</span>
                 </h1>
-                <p class="leading-6 text-blue-50 mt-4 text-sm lg:mt-[0.8vw] lg:leading-[1.5] lg:text-[clamp(0.7rem,1.1vw,1.125rem)]">{{ $hero['subheading'] ?? '' }}</p>
+                <p class="leading-6 text-blue-50 mt-4 text-sm lg:mt-[0.8vw] lg:text-[#B8CCE0] lg:leading-[1.6] lg:text-[clamp(0.7rem,1.1vw,1.125rem)]">{{ $hero['subheading'] ?? '' }}</p>
                 @php
                     $heroPrimaryIsDefault = empty($hero['primary_button_link']) || $hero['primary_button_link'] === '/book-appointment';
                     $heroPrimaryHref = $heroPrimaryIsDefault ? booking_url() : $hero['primary_button_link'];
@@ -47,14 +47,14 @@
                 <div class="flex flex-wrap gap-2 mt-4 text-xs lg:mt-[0.8vw] lg:gap-[0.5vw] lg:text-[clamp(0.6rem,0.85vw,0.875rem)]">
                     @foreach(preg_split('/\r\n|\r|\n/', trim(setting('opening_hours', ''))) as $line)
                         @if(trim($line) !== '')
-                            <span class="inline-flex items-center gap-1.5 rounded-full border border-blue-300/40 bg-blue-500/20 px-3 py-1.5 lg:px-[0.9vw] lg:py-[0.45vw]">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                            <span class="inline-flex items-center gap-1.5 rounded-full border border-blue-300/40 bg-blue-500/20 px-3 py-1.5 lg:border-[#8BC53F]/20 lg:bg-[#235F98] lg:px-[0.9vw] lg:py-[0.45vw]">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 shrink-0 lg:text-brand-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
                                 {{ trim($line) }}
                             </span>
                         @endif
                     @endforeach
-                    <span class="inline-flex items-center gap-1.5 rounded-full border border-blue-300/40 bg-blue-500/20 px-3 py-1.5 lg:px-[0.9vw] lg:py-[0.45vw]">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <span class="inline-flex items-center gap-1.5 rounded-full border border-blue-300/40 bg-blue-500/20 px-3 py-1.5 lg:border-[#8BC53F]/20 lg:bg-[#235F98] lg:px-[0.9vw] lg:py-[0.45vw]">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 shrink-0 lg:text-brand-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                         {{ setting('address_line1') }}, {{ setting('address_suburb') }}
                     </span>
                 </div>
