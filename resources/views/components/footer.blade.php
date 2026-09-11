@@ -17,6 +17,7 @@
                 <a href="{{ route('blog.index') }}" class="w-fit transition-colors duration-200 hover:text-white">Blog</a>
                 <a href="{{ route('faq') }}" class="w-fit transition-colors duration-200 hover:text-white">FAQ</a>
                 <a href="{{ route('contact') }}" class="w-fit transition-colors duration-200 hover:text-white">Contact</a>
+                <a href="{{ route('emergency') }}" class="w-fit transition-colors duration-200 hover:text-white">Emergency</a>
             </div>
         </div>
 

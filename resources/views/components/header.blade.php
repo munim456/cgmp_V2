@@ -46,9 +46,9 @@
                 <a href="{{ $href }}" class="rounded-lg px-3 py-3 transition-colors duration-200 hover:bg-brand-blue-tint">{{ $label }}</a>
             @endforeach
             <a href="{{ booking_url() }}" @if(booking_is_external()) target="_blank" rel="noopener" @endif class="btn-lift mt-2 flex items-center justify-center gap-3 rounded-2xl bg-brand-blue px-5 py-4 font-bold text-white">Book Appointment</a>
-            <a href="tel:000" class="mt-2 flex items-center gap-2 px-3 py-2 text-sm font-semibold text-red-600">
+            <a href="{{ route('emergency') }}" class="mt-2 flex items-center gap-2 px-3 py-2 text-sm font-semibold text-red-600">
                 <span class="h-1.5 w-1.5 rounded-full bg-red-600"></span>
-                Emergency? Call 000
+                Emergency Information
             </a>
         </nav>
     </header>
