@@ -12,6 +12,7 @@
             <span class="text-sm font-semibold">Message *</span>
             <textarea name="message" required class="mt-1 w-full rounded-lg border-gray-300" rows="3">{{ old('message', $announcement->message) }}</textarea>
             @error('message')<span class="text-sm text-red-600">{{ $message }}</span>@enderror
+            <x-text-style-control name="text_styles[message]" :style="$announcement->text_styles['message'] ?? null" />
         </label>
 
         <label class="block">

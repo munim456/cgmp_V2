@@ -12,6 +12,7 @@
             <span class="text-sm font-semibold">Title *</span>
             <input type="text" name="title" value="{{ old('title', $service->title) }}" required class="mt-1 w-full rounded-lg border-gray-300">
             @error('title')<span class="text-sm text-red-600">{{ $message }}</span>@enderror
+            <x-text-style-control name="text_styles[title]" :style="$service->text_styles['title'] ?? null" />
         </label>
 
         <label class="block">
@@ -31,11 +32,13 @@
         <label class="block">
             <span class="text-sm font-semibold">Short description (shown on cards)</span>
             <textarea name="short_description" class="mt-1 w-full rounded-lg border-gray-300" rows="2">{{ old('short_description', $service->short_description) }}</textarea>
+            <x-text-style-control name="text_styles[short_description]" :style="$service->text_styles['short_description'] ?? null" />
         </label>
 
         <label class="block">
             <span class="text-sm font-semibold">Full description (shown on the service page)</span>
             <textarea name="description" class="mt-1 w-full rounded-lg border-gray-300" rows="5">{{ old('description', $service->description) }}</textarea>
+            <x-text-style-control name="text_styles[description]" :style="$service->text_styles['description'] ?? null" />
         </label>
 
         <label class="block">

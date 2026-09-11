@@ -7,12 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Announcement extends Model
 {
-    protected $fillable = ['message', 'type', 'is_active', 'starts_at', 'ends_at'];
+    protected $fillable = ['message', 'type', 'is_active', 'starts_at', 'ends_at', 'text_styles'];
 
     protected $casts = [
         'is_active' => 'boolean',
         'starts_at' => 'datetime',
         'ends_at' => 'datetime',
+        'text_styles' => 'array',
     ];
 
     public function scopeLive(Builder $query): Builder

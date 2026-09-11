@@ -88,7 +88,7 @@
                 class="relative border-b {{ $announcement->type === 'warning' ? 'border-amber-200 bg-amber-50 text-amber-900' : 'border-brand-blue-tint bg-brand-blue-tint text-[#062238]' }}"
             >
                 <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-3">
-                    <p class="text-sm">{{ $announcement->message }}</p>
+                    <p style="{{ text_style($announcement->text_styles, 'message') }}" class="text-sm">{{ $announcement->message }}</p>
                     <button @click="show = false; localStorage.setItem('notice-{{ $announcement->id }}-dismissed', '1')" aria-label="Dismiss" class="shrink-0 opacity-70 transition-opacity hover:opacity-100">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
                     </button>

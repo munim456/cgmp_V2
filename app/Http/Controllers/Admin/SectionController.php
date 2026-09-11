@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Section;
 use App\Support\ImageUploader;
+use App\Support\TextStyles;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -45,6 +46,11 @@ class SectionController extends Controller
             $data['image'] = $current['image'] ?? null;
         }
 
+        $data['styles'] = TextStyles::sanitizeAll(
+            $request->input('text_styles', []),
+            ['heading', 'subheading', 'badge_text']
+        );
+
         Section::store('hero', $data);
 
         return redirect()->route('admin.sections.edit')->with('status', 'Hero section updated.');
@@ -74,6 +80,10 @@ class SectionController extends Controller
             'points' => $points,
             'stats' => $current['stats'] ?? [],
             'image' => $current['image'] ?? null,
+            'styles' => TextStyles::sanitizeAll(
+                $request->input('text_styles', []),
+                ['heading', 'subheading', 'body']
+            ),
         ];
 
         if ($request->hasFile('image')) {

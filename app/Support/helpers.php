@@ -49,3 +49,15 @@ if (! function_exists('booking_is_external')) {
         return (bool) setting('healthengine_url');
     }
 }
+
+if (! function_exists('text_style')) {
+    /**
+     * Inline `style` attribute value for an admin-configurable text field.
+     * $styles is a field-name => ['size' => ..., 'font' => ...] map (a model's
+     * text_styles column, or a section's content['styles']).
+     */
+    function text_style(?array $styles, string $field): string
+    {
+        return \App\Support\TextStyles::css($styles[$field] ?? null);
+    }
+}

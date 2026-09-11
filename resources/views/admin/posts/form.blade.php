@@ -11,6 +11,7 @@
         <label class="block">
             <span class="text-sm font-semibold">Title *</span>
             <input type="text" name="title" value="{{ old('title', $post->title) }}" required class="mt-1 w-full rounded-lg border-gray-300">
+            <x-text-style-control name="text_styles[title]" :style="$post->text_styles['title'] ?? null" />
         </label>
 
         <label class="block">
@@ -45,11 +46,13 @@
         <label class="block">
             <span class="text-sm font-semibold">Excerpt</span>
             <textarea name="excerpt" class="mt-1 w-full rounded-lg border-gray-300" rows="2">{{ old('excerpt', $post->excerpt) }}</textarea>
+            <x-text-style-control name="text_styles[excerpt]" :style="$post->text_styles['excerpt'] ?? null" />
         </label>
 
         <label class="block">
             <span class="text-sm font-semibold">Body *</span>
             <x-trix-field name="body" :value="$post->body" />
+            <x-text-style-control name="text_styles[body]" :style="$post->text_styles['body'] ?? null" />
         </label>
 
         <label class="block">

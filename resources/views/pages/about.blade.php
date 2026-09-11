@@ -6,8 +6,8 @@
 {{-- Hero --}}
 <section class="bg-gradient-to-br from-brand-blue-darker via-brand-blue-dark to-brand-blue px-6 py-16 text-center">
     <span class="inline-flex items-center rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-[12.5px] font-semibold tracking-wide text-[#bcd4ea]">ABOUT OUR PRACTICE</span>
-    <h1 class="mx-auto mt-4 max-w-3xl font-serif text-3xl font-bold leading-tight text-white md:text-4xl">{{ $about['heading'] ?? 'Healthcare for Every Generation' }}</h1>
-    <p class="mx-auto mt-3 max-w-xl text-base leading-relaxed text-[#aec4d8] md:text-lg">{{ $about['subheading'] ?? 'We are a passionate team of GPs dedicated to providing exceptional healthcare to our community.' }}</p>
+    <h1 style="{{ text_style($about['styles'] ?? null, 'heading') }}" class="mx-auto mt-4 max-w-3xl font-serif text-3xl font-bold leading-tight text-white md:text-4xl">{{ $about['heading'] ?? 'Healthcare for Every Generation' }}</h1>
+    <p style="{{ text_style($about['styles'] ?? null, 'subheading') }}" class="mx-auto mt-3 max-w-xl text-base leading-relaxed text-[#aec4d8] md:text-lg">{{ $about['subheading'] ?? 'We are a passionate team of GPs dedicated to providing exceptional healthcare to our community.' }}</p>
 </section>
 
 {{-- Our Story --}}
@@ -33,7 +33,7 @@
         <div data-reveal>
             <span class="inline-flex items-center rounded-full bg-brand-blue-tint px-4 py-1.5 text-[12.5px] font-semibold tracking-wide text-[#062238]">OUR STORY</span>
             <h2 class="mt-6 font-serif text-3xl font-bold leading-tight text-[#062238] md:text-[38px]">A Practice Built on Trust &amp; Community</h2>
-            <div class="prose prose-p:mb-4 prose-p:leading-[1.75] prose-p:text-[#5c6b7a] mt-6">{!! $about['body'] ?? '' !!}</div>
+            <div style="{{ text_style($about['styles'] ?? null, 'body') }}" class="prose prose-p:mb-4 prose-p:leading-[1.75] prose-p:text-[#5c6b7a] mt-6">{!! $about['body'] ?? '' !!}</div>
 
             @if(!empty($about['points']))
                 <div class="mt-7 flex flex-col gap-3">

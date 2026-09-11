@@ -23,9 +23,9 @@
                         @endif
                     </div>
                     <div>
-                        <h3 class="text-lg font-bold text-[#002B49]">{{ $doctor->name }}</h3>
-                        <p class="text-[13px] font-semibold text-[#4A8B2C]">{{ $doctor->qualifications }}</p>
-                        <p class="text-[13px] text-gray-500">{{ $doctor->role }}</p>
+                        <h3 style="{{ text_style($doctor->text_styles, 'name') }}" class="text-lg font-bold text-[#002B49]">{{ $doctor->name }}</h3>
+                        <p style="{{ text_style($doctor->text_styles, 'qualifications') }}" class="text-[13px] font-semibold text-[#4A8B2C]">{{ $doctor->qualifications }}</p>
+                        <p style="{{ text_style($doctor->text_styles, 'role') }}" class="text-[13px] text-gray-500">{{ $doctor->role }}</p>
                         @if($doctor->years_experience)
                             <div class="mt-1 flex items-center gap-1 text-xs text-gray-500">
                                 <svg class="h-3 w-3 fill-amber-400 text-amber-400" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
@@ -36,7 +36,7 @@
                 </div>
 
                 @if($doctor->bio)
-                    <p class="mb-4 line-clamp-2 text-sm leading-relaxed text-gray-500">{{ $doctor->bio }}</p>
+                    <p style="{{ text_style($doctor->text_styles, 'bio') }}" class="mb-4 line-clamp-2 text-sm leading-relaxed text-gray-500">{{ $doctor->bio }}</p>
                 @endif
 
                 @if($doctor->languageList())

@@ -12,13 +12,13 @@
             @endif
             <time datetime="{{ $post->published_at->toDateString() }}">{{ $post->published_at->format('j F Y') }}</time>
         </div>
-        <h1 class="mt-5 font-serif text-4xl font-bold text-[#062238] md:text-5xl">{{ $post->title }}</h1>
+        <h1 style="{{ text_style($post->text_styles, 'title') }}" class="mt-5 font-serif text-4xl font-bold text-[#062238] md:text-5xl">{{ $post->title }}</h1>
 
         @if($post->featured_image)
             <img src="{{ image_url($post->featured_image) }}" alt="{{ $post->featured_image_alt ?: $post->title }}" class="mt-8 aspect-[16/8] w-full rounded-3xl object-cover shadow-xl">
         @endif
 
-        <div class="prose mt-10 max-w-none text-lg leading-8 text-[#45627d]">
+        <div style="{{ text_style($post->text_styles, 'body') }}" class="prose mt-10 max-w-none text-lg leading-8 text-[#45627d]">
             {!! $post->body !!}
         </div>
 

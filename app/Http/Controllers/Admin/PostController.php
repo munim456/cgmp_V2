@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Post;
 use App\Support\ImageUploader;
+use App\Support\TextStyles;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -96,6 +97,10 @@ class PostController extends Controller
             'featured_image_alt' => ['nullable', 'string', 'max:255'],
         ]);
 
+        $data['text_styles'] = TextStyles::sanitizeAll(
+            $request->input('text_styles', []),
+            ['title', 'excerpt', 'body']
+        );
         unset($data['featured_image']);
 
         return $data;

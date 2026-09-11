@@ -11,7 +11,7 @@
             <div class="hero-circle pointer-events-none absolute -right-32 top-1/3 hidden h-56 w-56 -translate-y-1/2 rounded-full border border-white/10 lg:block" style="animation-delay: 1.3s"></div>
             <div class="relative max-w-[560px] lg:max-w-[42vw]">
                 @if(!empty($hero['badge_text']))
-                    <p class="whitespace-nowrap lg:whitespace-normal font-serif font-bold uppercase leading-tight lg:leading-[1.35] tracking-normal text-brand-green text-[3.6vw] sm:text-base lg:text-[clamp(1.25rem,2.4vw,2.25rem)]">{{ $hero['badge_text'] }}</p>
+                    <p style="{{ text_style($hero['styles'] ?? null, 'badge_text') }}" class="whitespace-nowrap lg:whitespace-normal font-serif font-bold uppercase leading-tight lg:leading-[1.35] tracking-normal text-brand-green text-[3.6vw] sm:text-base lg:text-[clamp(1.25rem,2.4vw,2.25rem)]">{{ $hero['badge_text'] }}</p>
                 @endif
                 @php
                     $heroHeadingText = $hero['heading'] ?? 'Welcome to ' . setting('clinic_name');
@@ -19,13 +19,13 @@
                     $heroHeadingHighlight = implode(' ', array_slice($heroHeadingWords, -2));
                     $heroHeadingLead = implode(' ', array_slice($heroHeadingWords, 0, -2));
                 @endphp
-                <h1 class="font-serif font-bold mt-4 text-2xl leading-tight lg:mt-[1vw] lg:whitespace-normal lg:text-[clamp(1rem,2.6vw,2.25rem)]">
+                <h1 style="{{ text_style($hero['styles'] ?? null, 'heading') }}" class="font-serif font-bold mt-4 text-2xl leading-tight lg:mt-[1vw] lg:whitespace-normal lg:text-[clamp(1rem,2.6vw,2.25rem)]">
                     @if($heroHeadingLead !== '')
                         {{ $heroHeadingLead }}
                     @endif
                     <span class="text-brand-green underline decoration-2 underline-offset-4">{{ $heroHeadingHighlight }}</span>
                 </h1>
-                <p class="leading-6 text-blue-50 mt-4 text-sm lg:mt-[0.8vw] lg:text-[#B8CCE0] lg:leading-[1.6] lg:text-[clamp(0.7rem,1.1vw,1.125rem)]">{{ $hero['subheading'] ?? '' }}</p>
+                <p style="{{ text_style($hero['styles'] ?? null, 'subheading') }}" class="leading-6 text-blue-50 mt-4 text-sm lg:mt-[0.8vw] lg:text-[#B8CCE0] lg:leading-[1.6] lg:text-[clamp(0.7rem,1.1vw,1.125rem)]">{{ $hero['subheading'] ?? '' }}</p>
                 @php
                     $heroPrimaryIsDefault = empty($hero['primary_button_link']) || $hero['primary_button_link'] === '/book-appointment';
                     $heroPrimaryHref = $heroPrimaryIsDefault ? booking_url() : $hero['primary_button_link'];
@@ -84,9 +84,9 @@
                         @endif
                     </div>
                     <div>
-                        <h3 class="text-lg font-bold text-[#002B49]">{{ $doctor->name }}</h3>
-                        <p class="text-[13px] font-semibold text-[#4A8B2C]">{{ $doctor->qualifications }}</p>
-                        <p class="text-[13px] text-gray-500">{{ $doctor->role }}</p>
+                        <h3 style="{{ text_style($doctor->text_styles, 'name') }}" class="text-lg font-bold text-[#002B49]">{{ $doctor->name }}</h3>
+                        <p style="{{ text_style($doctor->text_styles, 'qualifications') }}" class="text-[13px] font-semibold text-[#4A8B2C]">{{ $doctor->qualifications }}</p>
+                        <p style="{{ text_style($doctor->text_styles, 'role') }}" class="text-[13px] text-gray-500">{{ $doctor->role }}</p>
                         @if($doctor->years_experience)
                             <div class="mt-1 flex items-center gap-1 text-xs text-gray-500">
                                 <svg class="h-3 w-3 fill-amber-400 text-amber-400" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
@@ -97,7 +97,7 @@
                 </div>
 
                 @if($doctor->bio)
-                    <p class="mb-4 line-clamp-2 text-sm leading-relaxed text-gray-500">{{ $doctor->bio }}</p>
+                    <p style="{{ text_style($doctor->text_styles, 'bio') }}" class="mb-4 line-clamp-2 text-sm leading-relaxed text-gray-500">{{ $doctor->bio }}</p>
                 @endif
 
                 @if($doctor->languageList())
@@ -159,11 +159,11 @@
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01z"/></svg>
                     @endfor
                 </div>
-                <blockquote class="mt-4 text-lg leading-7 text-[#062238]">&ldquo;{{ $testimonial->content }}&rdquo;</blockquote>
+                <blockquote style="{{ text_style($testimonial->text_styles, 'content') }}" class="mt-4 text-lg leading-7 text-[#062238]">&ldquo;{{ $testimonial->content }}&rdquo;</blockquote>
                 <figcaption class="mt-4 font-semibold text-brand-blue">
-                    {{ $testimonial->name }}
+                    <span style="{{ text_style($testimonial->text_styles, 'name') }}">{{ $testimonial->name }}</span>
                     @if($testimonial->context)
-                        <span class="font-normal text-[#60758d]"> &mdash; {{ $testimonial->context }}</span>
+                        <span style="{{ text_style($testimonial->text_styles, 'context') }}" class="font-normal text-[#60758d]"> &mdash; {{ $testimonial->context }}</span>
                     @endif
                 </figcaption>
             </figure>

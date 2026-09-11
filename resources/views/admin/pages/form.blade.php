@@ -11,6 +11,7 @@
         <label class="block">
             <span class="text-sm font-semibold">Title *</span>
             <input type="text" name="title" value="{{ old('title', $page->title) }}" required class="mt-1 w-full rounded-lg border-gray-300">
+            <x-text-style-control name="text_styles[title]" :style="$page->text_styles['title'] ?? null" />
         </label>
 
         <label class="block">
@@ -21,6 +22,7 @@
         <label class="block">
             <span class="text-sm font-semibold">Body</span>
             <x-trix-field name="body" :value="$page->body" />
+            <x-text-style-control name="text_styles[body]" :style="$page->text_styles['body'] ?? null" />
         </label>
 
         <label class="block">

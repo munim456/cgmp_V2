@@ -12,21 +12,25 @@
             <span class="text-sm font-semibold">Name *</span>
             <input type="text" name="name" value="{{ old('name', $doctor->name) }}" required class="mt-1 w-full rounded-lg border-gray-300">
             @error('name')<span class="text-sm text-red-600">{{ $message }}</span>@enderror
+            <x-text-style-control name="text_styles[name]" :style="$doctor->text_styles['name'] ?? null" />
         </label>
 
         <label class="block">
             <span class="text-sm font-semibold">Role</span>
             <input type="text" name="role" value="{{ old('role', $doctor->role) }}" placeholder="e.g. Practice Principal" class="mt-1 w-full rounded-lg border-gray-300">
+            <x-text-style-control name="text_styles[role]" :style="$doctor->text_styles['role'] ?? null" />
         </label>
 
         <label class="block">
             <span class="text-sm font-semibold">Qualifications</span>
             <input type="text" name="qualifications" value="{{ old('qualifications', $doctor->qualifications) }}" placeholder="e.g. MBBS, DCH, FRACGP" class="mt-1 w-full rounded-lg border-gray-300">
+            <x-text-style-control name="text_styles[qualifications]" :style="$doctor->text_styles['qualifications'] ?? null" />
         </label>
 
         <label class="block">
             <span class="text-sm font-semibold">Bio</span>
             <textarea name="bio" class="mt-1 w-full rounded-lg border-gray-300" rows="4">{{ old('bio', $doctor->bio) }}</textarea>
+            <x-text-style-control name="text_styles[bio]" :style="$doctor->text_styles['bio'] ?? null" />
         </label>
 
         <div class="grid gap-5 sm:grid-cols-2">

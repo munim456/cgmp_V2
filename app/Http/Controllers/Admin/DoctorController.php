@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Doctor;
 use App\Support\ImageUploader;
+use App\Support\TextStyles;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -79,6 +80,10 @@ class DoctorController extends Controller
 
         $data['is_active'] = $request->boolean('is_active');
         $data['availability_days'] = array_values($data['availability_days'] ?? []);
+        $data['text_styles'] = TextStyles::sanitizeAll(
+            $request->input('text_styles', []),
+            ['name', 'qualifications', 'role', 'bio']
+        );
         unset($data['photo']);
 
         return $data;

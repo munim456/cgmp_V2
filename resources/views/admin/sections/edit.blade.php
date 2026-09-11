@@ -11,14 +11,17 @@
             <label class="block">
                 <span class="text-sm font-semibold">Heading *</span>
                 <input type="text" name="heading" value="{{ old('heading', $hero['heading'] ?? '') }}" required class="mt-1 w-full rounded-lg border-gray-300">
+                <x-text-style-control name="text_styles[heading]" :style="$hero['styles']['heading'] ?? null" />
             </label>
             <label class="block">
                 <span class="text-sm font-semibold">Subheading</span>
                 <textarea name="subheading" class="mt-1 w-full rounded-lg border-gray-300" rows="2">{{ old('subheading', $hero['subheading'] ?? '') }}</textarea>
+                <x-text-style-control name="text_styles[subheading]" :style="$hero['styles']['subheading'] ?? null" />
             </label>
             <label class="block">
                 <span class="text-sm font-semibold">Badge text</span>
                 <input type="text" name="badge_text" value="{{ old('badge_text', $hero['badge_text'] ?? '') }}" class="mt-1 w-full rounded-lg border-gray-300">
+                <x-text-style-control name="text_styles[badge_text]" :style="$hero['styles']['badge_text'] ?? null" />
             </label>
             <div class="grid grid-cols-2 gap-4">
                 <label class="block">
@@ -56,14 +59,17 @@
             <label class="block">
                 <span class="text-sm font-semibold">Heading *</span>
                 <input type="text" name="heading" value="{{ old('heading', $about['heading'] ?? '') }}" required class="mt-1 w-full rounded-lg border-gray-300">
+                <x-text-style-control name="text_styles[heading]" :style="$about['styles']['heading'] ?? null" />
             </label>
             <label class="block">
                 <span class="text-sm font-semibold">Subheading <span class="text-gray-400">(shown on the About page hero)</span></span>
                 <textarea name="subheading" class="mt-1 w-full rounded-lg border-gray-300" rows="2">{{ old('subheading', $about['subheading'] ?? '') }}</textarea>
+                <x-text-style-control name="text_styles[subheading]" :style="$about['styles']['subheading'] ?? null" />
             </label>
             <label class="block">
                 <span class="text-sm font-semibold">Body</span>
                 <x-trix-field name="body" :value="$about['body'] ?? ''" id="about-body" />
+                <x-text-style-control name="text_styles[body]" :style="$about['styles']['body'] ?? null" />
             </label>
             <label class="block">
                 <span class="text-sm font-semibold">Key points <span class="text-gray-400">(one per line)</span></span>

@@ -11,16 +11,19 @@
         <label class="block">
             <span class="text-sm font-semibold">Name *</span>
             <input type="text" name="name" value="{{ old('name', $testimonial->name) }}" required class="mt-1 w-full rounded-lg border-gray-300">
+            <x-text-style-control name="text_styles[name]" :style="$testimonial->text_styles['name'] ?? null" />
         </label>
 
         <label class="block">
             <span class="text-sm font-semibold">Context <span class="text-gray-400">(e.g. "Patient since 2019")</span></span>
             <input type="text" name="context" value="{{ old('context', $testimonial->context) }}" class="mt-1 w-full rounded-lg border-gray-300">
+            <x-text-style-control name="text_styles[context]" :style="$testimonial->text_styles['context'] ?? null" />
         </label>
 
         <label class="block">
             <span class="text-sm font-semibold">Testimonial *</span>
             <textarea name="content" required class="mt-1 w-full rounded-lg border-gray-300" rows="4">{{ old('content', $testimonial->content) }}</textarea>
+            <x-text-style-control name="text_styles[content]" :style="$testimonial->text_styles['content'] ?? null" />
         </label>
 
         <label class="block">

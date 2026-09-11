@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Announcement;
+use App\Support\TextStyles;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -59,6 +60,10 @@ class AnnouncementController extends Controller
         ]);
 
         $data['is_active'] = $request->boolean('is_active');
+        $data['text_styles'] = TextStyles::sanitizeAll(
+            $request->input('text_styles', []),
+            ['message']
+        );
 
         return $data;
     }

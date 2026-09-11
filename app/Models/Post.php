@@ -12,11 +12,12 @@ class Post extends Model
     protected $fillable = [
         'author_id', 'category_id', 'title', 'slug', 'excerpt', 'body',
         'featured_image', 'featured_image_alt', 'status', 'published_at',
-        'meta_title', 'meta_description',
+        'meta_title', 'meta_description', 'text_styles',
     ];
 
     protected $casts = [
         'published_at' => 'datetime',
+        'text_styles' => 'array',
     ];
 
     public function author(): BelongsTo

@@ -9,10 +9,10 @@
         <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-blue-tint">
             <x-service-icon :name="$service->icon" class="h-8 w-8 text-brand-blue" />
         </div>
-        <h1 class="mt-7 font-serif text-4xl font-bold text-[#062238] md:text-5xl">{{ $service->title }}</h1>
-        <p class="mt-5 text-lg leading-8 text-[#45627d]">{{ $service->short_description }}</p>
+        <h1 style="{{ text_style($service->text_styles, 'title') }}" class="mt-7 font-serif text-4xl font-bold text-[#062238] md:text-5xl">{{ $service->title }}</h1>
+        <p style="{{ text_style($service->text_styles, 'short_description') }}" class="mt-5 text-lg leading-8 text-[#45627d]">{{ $service->short_description }}</p>
         @if($service->description)
-            <div class="prose mt-8 leading-8 text-[#45627d]">{!! nl2br(e($service->description)) !!}</div>
+            <div style="{{ text_style($service->text_styles, 'description') }}" class="prose mt-8 leading-8 text-[#45627d]">{!! nl2br(e($service->description)) !!}</div>
         @endif
         <div class="mt-10">
             <x-booking-button />

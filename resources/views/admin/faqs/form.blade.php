@@ -11,11 +11,13 @@
         <label class="block">
             <span class="text-sm font-semibold">Question *</span>
             <input type="text" name="question" value="{{ old('question', $faq->question) }}" required class="mt-1 w-full rounded-lg border-gray-300">
+            <x-text-style-control name="text_styles[question]" :style="$faq->text_styles['question'] ?? null" />
         </label>
 
         <label class="block">
             <span class="text-sm font-semibold">Answer *</span>
             <textarea name="answer" required class="mt-1 w-full rounded-lg border-gray-300" rows="4">{{ old('answer', $faq->answer) }}</textarea>
+            <x-text-style-control name="text_styles[answer]" :style="$faq->text_styles['answer'] ?? null" />
         </label>
 
         <label class="block">

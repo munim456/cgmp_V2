@@ -17,9 +17,9 @@
             @endif
             <time datetime="{{ $post->published_at->toDateString() }}">{{ $post->published_at->format('j M Y') }}</time>
         </div>
-        <h3 class="font-serif text-base font-bold leading-snug"><a href="{{ route('blog.show', $post) }}">{{ $post->title }}</a></h3>
+        <h3 style="{{ text_style($post->text_styles, 'title') }}" class="font-serif text-base font-bold leading-snug"><a href="{{ route('blog.show', $post) }}">{{ $post->title }}</a></h3>
         @if($post->excerpt)
-            <p class="flex-1 text-xs leading-5 text-[#60758d]">{{ $post->excerpt }}</p>
+            <p style="{{ text_style($post->text_styles, 'excerpt') }}" class="flex-1 text-xs leading-5 text-[#60758d]">{{ $post->excerpt }}</p>
         @endif
         <a href="{{ route('blog.show', $post) }}" class="flex items-center gap-1.5 text-sm font-semibold text-brand-blue">
             Read article
