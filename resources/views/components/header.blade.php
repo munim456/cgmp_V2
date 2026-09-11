@@ -1,12 +1,15 @@
 @php
-    $navItems = [
-        ['Home', route('home')],
-        ['About', route('about')],
-        ['Services', route('services.index')],
-        ['Doctors', route('doctors')],
-        ['Blog', route('blog.index')],
-        ['Contact', route('contact')],
-    ];
+    $configuredNavItems = section_data('navigation')['items'] ?? [];
+    $navItems = count($configuredNavItems)
+        ? collect($configuredNavItems)->map(fn ($item) => [$item['label'], $item['url']])->all()
+        : [
+            ['Home', route('home')],
+            ['About', route('about')],
+            ['Services', route('services.index')],
+            ['Doctors', route('doctors')],
+            ['Blog', route('blog.index')],
+            ['Contact', route('contact')],
+        ];
 @endphp
 
 <div x-data="{ open: false }">

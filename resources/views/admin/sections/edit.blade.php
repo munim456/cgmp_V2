@@ -112,5 +112,29 @@
             <div><button type="submit" class="rounded-lg bg-brand-blue px-5 py-2 font-semibold text-white">Save Hospitals</button></div>
         </form>
     </div>
+
+    <div class="rounded-xl bg-white p-6 shadow-sm">
+        <h2 class="text-lg font-bold">Navigation Menu (header)</h2>
+        <p class="mt-1 text-sm text-gray-500">One menu item per line, in the format: <code>Label | URL</code>. Order here is the order shown in the menu. Example: <code>Home | /</code></p>
+        <form method="POST" action="{{ route('admin.sections.navigation') }}" class="mt-4 grid gap-4">
+            @csrf @method('PUT')
+            <label class="block">
+                <span class="text-sm font-semibold">Menu items</span>
+                @php
+                    $defaultNavItems = [
+                        ['label' => 'Home', 'url' => route('home')],
+                        ['label' => 'About', 'url' => route('about')],
+                        ['label' => 'Services', 'url' => route('services.index')],
+                        ['label' => 'Doctors', 'url' => route('doctors')],
+                        ['label' => 'Blog', 'url' => route('blog.index')],
+                        ['label' => 'Contact', 'url' => route('contact')],
+                    ];
+                    $navItemsForDisplay = $navigation['items'] ?? $defaultNavItems;
+                @endphp
+                <textarea name="items" class="mt-1 w-full rounded-lg border-gray-300 font-mono text-sm" rows="6">{{ old('items', collect($navItemsForDisplay)->map(fn ($i) => "{$i['label']} | {$i['url']}")->implode("\n")) }}</textarea>
+            </label>
+            <div><button type="submit" class="rounded-lg bg-brand-blue px-5 py-2 font-semibold text-white">Save Navigation</button></div>
+        </form>
+    </div>
 </div>
 @endsection

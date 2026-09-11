@@ -18,6 +18,7 @@ class SectionController extends Controller
             'about' => section_data('about'),
             'bookingStrip' => section_data('booking_strip'),
             'nearestHospitals' => section_data('nearest_hospitals'),
+            'navigation' => section_data('navigation'),
         ]);
     }
 
@@ -122,5 +123,31 @@ class SectionController extends Controller
         Section::store('nearest_hospitals', ['hospitals' => $hospitals]);
 
         return redirect()->route('admin.sections.edit')->with('status', 'Nearest hospitals updated.');
+    }
+
+    public function updateNavigation(Request $request): RedirectResponse
+    {
+        $data = $request->validate([
+            'items' => ['nullable', 'string'],
+        ]);
+
+        $items = collect(explode("\n", (string) ($data['items'] ?? '')))
+            ->map(fn ($line) => trim($line))
+            ->filter()
+            ->map(function ($line) {
+                $parts = array_map('trim', explode('|', $line));
+
+                return [
+                    'label' => $parts[0] ?? '',
+                    'url' => $parts[1] ?? '',
+                ];
+            })
+            ->filter(fn ($item) => $item['label'] !== '' && $item['url'] !== '')
+            ->values()
+            ->all();
+
+        Section::store('navigation', ['items' => $items]);
+
+        return redirect()->route('admin.sections.edit')->with('status', 'Navigation menu updated.');
     }
 }

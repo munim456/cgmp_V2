@@ -32,6 +32,7 @@ class SettingController extends Controller
 
         $request->validate([
             'logo' => ['nullable', 'file', 'mimes:jpg,jpeg,png,webp,svg', 'max:2048'],
+            'favicon' => ['nullable', 'file', 'mimes:jpg,jpeg,png,webp,svg,ico', 'max:1024'],
         ]);
 
         if ($request->boolean('remove_logo')) {
@@ -40,6 +41,15 @@ class SettingController extends Controller
             Setting::query()->updateOrCreate(
                 ['key' => 'logo_path'],
                 ['value' => ImageUploader::storeLogo($request->file('logo'))]
+            );
+        }
+
+        if ($request->boolean('remove_favicon')) {
+            Setting::query()->updateOrCreate(['key' => 'favicon_path'], ['value' => null]);
+        } elseif ($request->hasFile('favicon')) {
+            Setting::query()->updateOrCreate(
+                ['key' => 'favicon_path'],
+                ['value' => ImageUploader::storeLogo($request->file('favicon'), 'branding', 256)]
             );
         }
 

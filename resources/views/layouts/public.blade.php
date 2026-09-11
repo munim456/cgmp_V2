@@ -35,8 +35,13 @@
     ], JSON_UNESCAPED_SLASHES) !!}
     </script>
 
-    <link rel="icon" href="/icon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/apple-icon.png">
+    @if(setting('favicon_path'))
+        <link rel="icon" href="{{ image_url(setting('favicon_path')) }}">
+        <link rel="apple-touch-icon" href="{{ image_url(setting('favicon_path')) }}">
+    @else
+        <link rel="icon" href="/icon.svg" type="image/svg+xml">
+        <link rel="apple-touch-icon" href="/apple-icon.png">
+    @endif
 
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/aileron@5/index.min.css">

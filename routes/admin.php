@@ -32,6 +32,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'verified', 'admin']
     Route::put('sections/about', [SectionController::class, 'updateAbout'])->name('sections.about');
     Route::put('sections/booking-strip', [SectionController::class, 'updateBookingStrip'])->name('sections.booking-strip');
     Route::put('sections/nearest-hospitals', [SectionController::class, 'updateNearestHospitals'])->name('sections.nearest-hospitals');
+    Route::put('sections/navigation', [SectionController::class, 'updateNavigation'])->name('sections.navigation');
 
     Route::get('settings', [SettingController::class, 'edit'])->name('settings.edit');
     Route::put('settings', [SettingController::class, 'update'])->name('settings.update');

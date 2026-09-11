@@ -30,6 +30,28 @@
             </div>
         </div>
 
+        <div class="flex items-start gap-4">
+            <div class="flex h-16 w-16 items-center justify-center rounded-lg border border-dashed border-gray-300 bg-gray-50">
+                @if($settings['favicon_path'] ?? null)
+                    <img src="{{ image_url($settings['favicon_path']) }}" alt="Current favicon" class="max-h-10 max-w-full object-contain">
+                @else
+                    <span class="px-1 text-center text-xs text-gray-400">Default</span>
+                @endif
+            </div>
+            <div class="flex-1">
+                <label class="block">
+                    <span class="text-sm font-semibold">Favicon <span class="text-gray-400">(browser tab icon &mdash; square PNG or SVG recommended)</span></span>
+                    <input type="file" name="favicon" accept=".png,.svg,.jpg,.jpeg,.webp,.ico" class="mt-1 w-full rounded-lg border-gray-300 text-sm">
+                </label>
+                @if($settings['favicon_path'] ?? null)
+                    <label class="mt-2 flex items-center gap-2 text-sm text-gray-600">
+                        <input type="checkbox" name="remove_favicon" value="1" class="rounded border-gray-300">
+                        Remove uploaded favicon and use the default
+                    </label>
+                @endif
+            </div>
+        </div>
+
         <h2 class="mt-4 font-bold text-gray-700">Identity</h2>
         <label class="block">
             <span class="text-sm font-semibold">Clinic name</span>
