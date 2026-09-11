@@ -1,6 +1,14 @@
-@props(['light' => false])
+@props(['light' => false, 'lightOnMobile' => false])
 
-<div {{ $attributes->merge(['class' => 'flex items-center gap-2 ' . ($light ? 'text-white' : 'text-brand-blue')]) }}>
+@php
+    $textClass = match(true) {
+        $light => 'text-white',
+        $lightOnMobile => 'text-white lg:text-brand-blue',
+        default => 'text-brand-blue',
+    };
+@endphp
+
+<div {{ $attributes->merge(['class' => 'flex items-center gap-2 ' . $textClass]) }}>
     @if(setting('logo_path'))
         <img src="{{ image_url(setting('logo_path')) }}" alt="{{ setting('clinic_name', 'Clinic logo') }}" class="h-14 w-24 shrink-0 object-contain">
     @else
