@@ -8,8 +8,13 @@
 
     <div class="mx-auto mt-14 max-w-4xl">
         @if(setting('healthengine_url'))
-            <div class="overflow-hidden rounded-3xl border border-slate-200 shadow-xl">
-                <iframe src="{{ setting('healthengine_url') }}" title="Book an appointment" class="h-[650px] w-full border-0" loading="lazy"></iframe>
+            <div class="rounded-3xl bg-brand-blue-tint p-10 text-center">
+                <h2 class="font-serif text-2xl font-bold text-[#062238]">Book Online with HealthEngine</h2>
+                <p class="mt-4 leading-7 text-[#45627d]">See live appointment times and book instantly with our doctors via HealthEngine. You'll be taken to a new tab to complete your booking.</p>
+                <a href="{{ setting('healthengine_url') }}" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-3 rounded-2xl bg-brand-blue px-7 py-4 font-bold text-white shadow-lg hover:bg-brand-blue-dark transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                    Book Appointment
+                </a>
             </div>
         @else
             <div class="rounded-3xl bg-brand-blue-tint p-10 text-center">
