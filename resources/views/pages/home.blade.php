@@ -31,10 +31,14 @@
                     $heroPrimaryHref = $heroPrimaryIsDefault ? booking_url() : $hero['primary_button_link'];
                 @endphp
                 <div class="flex flex-wrap gap-4 mt-6 lg:mt-[1.2vw] lg:gap-[1vw]">
-                    <a href="{{ $heroPrimaryHref }}" @if($heroPrimaryIsDefault && booking_is_external()) target="_blank" rel="noopener" @endif class="btn-lift inline-flex items-center gap-3 rounded-2xl bg-brand-green font-bold text-white shadow-lg hover:bg-brand-green-dark px-7 py-5 lg:gap-[0.6vw] lg:px-[1.6vw] lg:py-[1vw] lg:text-[clamp(0.7rem,1.05vw,1rem)]">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 lg:h-[1.4vw] lg:w-[1.4vw]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-                        {{ $hero['primary_button_text'] ?? 'Book Appointment' }}
-                    </a>
+                    @if($heroPrimaryIsDefault)
+                        <x-healthengine-button :label="$hero['primary_button_text'] ?? 'Book Appointment'" class="btn-lift inline-flex items-center gap-3 rounded-2xl bg-brand-green font-bold text-white shadow-lg hover:bg-brand-green-dark px-7 py-5 lg:gap-[0.6vw] lg:px-[1.6vw] lg:py-[1vw] lg:text-[clamp(0.7rem,1.05vw,1rem)]" />
+                    @else
+                        <a href="{{ $heroPrimaryHref }}" class="btn-lift inline-flex items-center gap-3 rounded-2xl bg-brand-green font-bold text-white shadow-lg hover:bg-brand-green-dark px-7 py-5 lg:gap-[0.6vw] lg:px-[1.6vw] lg:py-[1vw] lg:text-[clamp(0.7rem,1.05vw,1rem)]">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 lg:h-[1.4vw] lg:w-[1.4vw]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                            {{ $hero['primary_button_text'] ?? 'Book Appointment' }}
+                        </a>
+                    @endif
                     <a href="tel:{{ preg_replace('/\s+/', '', setting('phone', '')) }}" class="btn-lift inline-flex items-center gap-3 rounded-2xl border border-blue-300/60 hover:bg-white/10 px-7 py-5 lg:gap-[0.6vw] lg:px-[1.6vw] lg:py-[1vw] lg:text-[clamp(0.7rem,1.05vw,1rem)]">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 lg:h-[1.4vw] lg:w-[1.4vw]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                         {{ setting('phone') }}

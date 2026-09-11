@@ -61,7 +61,7 @@
                     <span class="h-1.5 w-1.5 rounded-full bg-[#ffd7d7]"></span>
                     Emergency Info
                 </a>
-                <a href="{{ booking_url() }}" @if(booking_is_external()) target="_blank" rel="noopener" @endif class="rounded-full bg-brand-green px-3 py-1 text-xs font-semibold text-white transition-colors hover:bg-brand-green-dark">Book Online</a>
+                <x-healthengine-button label="Book Online" class="rounded-full bg-brand-green px-3 py-1 text-xs font-semibold text-white transition-colors hover:bg-brand-green-dark" />
             </span>
         </div>
     </div>

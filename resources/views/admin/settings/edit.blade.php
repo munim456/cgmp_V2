@@ -72,8 +72,12 @@
 
         <h2 class="mt-4 font-bold text-gray-700">Booking</h2>
         <label class="block">
-            <span class="text-sm font-semibold">HealthEngine embed URL <span class="text-gray-400">(leave blank to show the phone/walk-in fallback)</span></span>
+            <span class="text-sm font-semibold">HealthEngine practice page URL <span class="text-gray-400">(your public HealthEngine listing, used as a fallback link)</span></span>
             <input type="url" name="healthengine_url" value="{{ old('healthengine_url', $settings['healthengine_url'] ?? '') }}" class="mt-1 w-full rounded-lg border-gray-300">
+        </label>
+        <label class="block">
+            <span class="text-sm font-semibold">HealthEngine practice ID <span class="text-gray-400">(the numeric ID from your HealthEngine "Web Plugin" embed code, e.g. 98588 &mdash; enables the real live-availability booking popup instead of just a link)</span></span>
+            <input type="text" name="healthengine_id" value="{{ old('healthengine_id', $settings['healthengine_id'] ?? '') }}" class="mt-1 w-full rounded-lg border-gray-300">
         </label>
 
         <h2 class="mt-4 font-bold text-gray-700">Social</h2>

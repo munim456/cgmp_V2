@@ -20,10 +20,7 @@
                 @endforeach
             </nav>
 
-            <a href="{{ booking_url() }}" @if(booking_is_external()) target="_blank" rel="noopener" @endif class="btn-lift hidden items-center gap-2 rounded-xl bg-brand-blue px-4 py-2.5 text-sm font-bold text-white shadow-lg hover:bg-brand-blue-dark md:flex">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-                Book Appointment
-            </a>
+            <x-healthengine-button class="btn-lift hidden items-center gap-2 rounded-xl bg-brand-blue px-4 py-2.5 text-sm font-bold text-white shadow-lg hover:bg-brand-blue-dark md:flex" />
 
             <button aria-label="Open menu" class="lg:hidden" @click="open = !open">
                 <svg x-show="!open" x-transition.opacity.duration.150ms xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -45,7 +42,7 @@
             @foreach($navItems as [$label, $href])
                 <a href="{{ $href }}" class="rounded-lg px-3 py-3 transition-colors duration-200 hover:bg-brand-blue-tint">{{ $label }}</a>
             @endforeach
-            <a href="{{ booking_url() }}" @if(booking_is_external()) target="_blank" rel="noopener" @endif class="btn-lift mt-2 flex items-center justify-center gap-3 rounded-2xl bg-brand-blue px-5 py-4 font-bold text-white">Book Appointment</a>
+            <x-healthengine-button class="btn-lift mt-2 flex items-center justify-center gap-3 rounded-2xl bg-brand-blue px-5 py-4 font-bold text-white" />
             <a href="{{ route('emergency') }}" class="mt-2 flex items-center gap-2 px-3 py-2 text-sm font-semibold text-red-600">
                 <span class="h-1.5 w-1.5 rounded-full bg-red-600"></span>
                 Emergency Information
