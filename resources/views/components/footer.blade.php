@@ -71,10 +71,14 @@
 </footer>
 
 <button
-    x-data
+    x-data="{ show: false }"
+    x-init="window.addEventListener('scroll', () => show = window.scrollY > 500, { passive: true })"
+    x-show="show"
+    x-cloak
+    x-transition.opacity
     @click="window.scrollTo({top: 0, behavior: 'smooth'})"
     aria-label="Back to top"
-    class="btn-lift fixed bottom-6 right-6 z-30 flex h-14 w-14 items-center justify-center rounded-full bg-brand-blue text-white shadow-xl hover:bg-brand-blue-dark"
+    class="btn-lift fixed bottom-5 right-5 z-30 flex h-12 w-12 items-center justify-center rounded-full bg-brand-blue text-white shadow-xl hover:bg-brand-blue-dark lg:bottom-6 lg:right-6 lg:h-14 lg:w-14"
 >
     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
 </button>
