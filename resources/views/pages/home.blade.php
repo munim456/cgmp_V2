@@ -25,7 +25,7 @@
                     @endif
                     <span class="text-brand-green underline decoration-2 underline-offset-4">{{ $heroHeadingHighlight }}</span>
                 </h1>
-                <p style="{{ text_style($hero['styles'] ?? null, 'subheading') }}" class="leading-6 text-blue-50 mt-4 text-sm lg:mt-[0.8vw] lg:text-[#B8CCE0] lg:leading-[1.6] lg:text-[clamp(0.7rem,1.1vw,1.125rem)]">{{ $hero['subheading'] ?? '' }}</p>
+                <p style="{{ text_style($hero['styles'] ?? null, 'subheading') }}" class="leading-6 text-blue-50 mt-4 text-xs font-light lg:mt-[0.8vw] lg:text-[#B8CCE0] lg:leading-[1.6] lg:text-[clamp(0.625rem,1vw,1rem)]">{{ $hero['subheading'] ?? '' }}</p>
                 @php
                     $heroPrimaryIsDefault = empty($hero['primary_button_link']) || $hero['primary_button_link'] === '/book-appointment';
                     $heroPrimaryHref = $heroPrimaryIsDefault ? booking_url() : $hero['primary_button_link'];
