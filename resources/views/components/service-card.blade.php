@@ -1,9 +1,9 @@
 @props(['service'])
 
 <div class="flex flex-col rounded-[18px] bg-white p-4 shadow-lg shadow-[#062238]/10 hover:-translate-y-1 transition-transform sm:p-5" data-reveal>
-    <a href="{{ route('services.show', $service) }}" class="block flex-1">
-        <div class="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-brand-blue-tint text-xl sm:mb-4 sm:h-11 sm:w-11">
-            <x-service-icon :name="$service->icon" class="h-5 w-5 text-brand-blue" />
+    <a href="{{ route('services.show', $service) }}" class="group block flex-1">
+        <div class="service-icon-badge mb-3 flex h-10 w-10 items-center justify-center rounded-xl text-xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 sm:mb-4 sm:h-11 sm:w-11">
+            <x-service-icon :name="$service->icon" class="h-5 w-5 text-white" />
         </div>
         <h3 style="{{ text_style($service->text_styles, 'title') }}" class="font-serif text-base font-bold sm:text-lg">{{ $service->title }}</h3>
         <p style="{{ text_style($service->text_styles, 'short_description') }}" class="mt-1.5 text-xs leading-5 text-[#60758d] sm:mt-2 sm:text-sm sm:leading-6">{{ $service->short_description }}</p>
