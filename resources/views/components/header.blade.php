@@ -13,12 +13,14 @@
     $bookIcon = '<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>';
 @endphp
 
-<div x-data="{ open: false }">
-    <header id="site-header" class="relative z-10 rounded-b-3xl border-b-2 border-brand-blue bg-white shadow-[0_2px_16px_rgba(15,42,67,0.08)]">
-        <div class="flex items-center justify-between py-3 pl-4 pr-6 site-header__inner">
+<div x-data="{ open: false, scrolled: false }" @scroll.window="scrolled = window.scrollY > 24">
+    <header id="site-header" class="relative z-10 rounded-b-3xl border-b-2 border-brand-blue bg-white transition-shadow duration-300" :class="scrolled ? 'shadow-[0_6px_24px_rgba(15,42,67,0.16)]' : 'shadow-[0_2px_16px_rgba(15,42,67,0.08)]'">
+        <div class="flex items-center justify-between pl-4 pr-6 site-header__inner transition-[padding] duration-300" :class="scrolled ? 'py-2' : 'py-3'">
             <a
                 href="{{ route('home') }}"
                 @click="if (window.location.pathname === '{{ parse_url(route('home'), PHP_URL_PATH) ?: '/' }}') { $event.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }"
+                class="origin-left transition-transform duration-300"
+                :class="scrolled ? 'scale-90' : 'scale-100'"
             ><x-logo /></a>
 
             <nav class="hidden items-center gap-1 lg:flex">
@@ -29,7 +31,7 @@
 
             <div class="hidden h-6 w-px bg-gray-200 lg:mr-2 lg:block"></div>
 
-            <x-healthengine-button :label="$bookIcon . 'Book Appointment'" class="btn-lift hidden items-center gap-2 rounded-xl bg-brand-blue px-4 py-2.5 text-sm font-bold text-white shadow-md hover:bg-brand-blue-dark hover:shadow-lg md:flex" />
+            <x-healthengine-button :label="$bookIcon . 'Book Appointment'" class="btn-lift btn-shimmer hidden items-center gap-2 rounded-xl bg-brand-blue px-4 py-2.5 text-sm font-bold text-white shadow-md hover:bg-brand-blue-dark hover:shadow-lg md:flex" />
 
             <button aria-label="Open menu" class="relative h-8 w-8 shrink-0 lg:hidden" @click="open = !open">
                 <span class="absolute left-1/2 top-1/2 block h-0.5 w-6 -translate-x-1/2 rounded-full bg-[#162232] transition-all duration-300" :class="open ? 'translate-y-0 rotate-45' : '-translate-y-[7px]'"></span>

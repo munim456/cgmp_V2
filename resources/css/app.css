@@ -102,6 +102,30 @@ html, body { margin: 0; padding: 0; }
     to { stroke-dashoffset: 0; }
 }
 
+/* Nav CTA: slow light sweep to draw the eye, pauses between passes */
+.btn-shimmer {
+    position: relative;
+    overflow: hidden;
+}
+.btn-shimmer::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    left: -75%;
+    width: 50%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+    transform: skewX(-20deg);
+}
+@media (prefers-reduced-motion: no-preference) {
+    .btn-shimmer::after {
+        animation: btn-shimmer-sweep 3.5s ease-in-out infinite;
+    }
+}
+@keyframes btn-shimmer-sweep {
+    0%, 55% { left: -75%; }
+    100% { left: 125%; }
+}
+
 /* Button micro-interactions */
 .btn-lift {
     transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
