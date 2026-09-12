@@ -6,7 +6,7 @@
 {{-- Hero --}}
 <section class="bg-gradient-to-br from-brand-blue-darker via-brand-blue-dark to-brand-blue px-6 py-16 text-center">
     <span class="inline-flex items-center rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-[12.5px] font-semibold tracking-wide text-[#bcd4ea]">ABOUT OUR PRACTICE</span>
-    <h1 style="{{ text_style($about['styles'] ?? null, 'heading') }}" class="mx-auto mt-4 max-w-3xl font-serif text-3xl font-bold leading-tight text-white md:text-4xl">{{ $about['heading'] ?? 'Healthcare for Every Generation' }}</h1>
+    <h1 style="{{ text_style($about['styles'] ?? null, 'heading') }}" class="mx-auto mt-4 max-w-3xl whitespace-nowrap font-serif text-[6vw] font-bold leading-tight text-white sm:whitespace-normal sm:text-3xl md:text-4xl">{{ $about['heading'] ?? 'Healthcare for Every Generation' }}</h1>
     <p style="{{ text_style($about['styles'] ?? null, 'subheading') }}" class="mx-auto mt-3 max-w-xl text-base leading-relaxed text-[#aec4d8] md:text-lg">{{ $about['subheading'] ?? 'We are a passionate team of GPs dedicated to providing exceptional healthcare to our community.' }}</p>
 </section>
 
