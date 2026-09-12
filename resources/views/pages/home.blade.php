@@ -122,7 +122,7 @@
 <section class="bg-grain relative isolate overflow-hidden bg-gradient-to-br from-white via-brand-blue-tint to-[#a9d4f5] px-6 py-14">
     <span class="pointer-events-none absolute -left-6 -top-16 select-none font-serif text-[220px] leading-none text-brand-blue-tint md:text-[280px]" aria-hidden="true">&ldquo;</span>
     <div class="relative">
-        <x-section-title eyebrow="From the blog" title="Health Articles & Clinic News" copy="Read the latest updates and health advice from our practice." titleClass="whitespace-nowrap text-[5.5vw] sm:whitespace-normal sm:text-3xl md:text-4xl lg:text-5xl" />
+        <x-section-title eyebrow="From the blog" title="Health Articles & Clinic News" copy="Read the latest updates and health advice from our practice." titleClass="whitespace-nowrap text-[5.5vw] sm:whitespace-normal sm:text-3xl md:text-4xl lg:text-5xl" copyClass="text-sm leading-6 sm:text-lg sm:leading-8" />
         <div class="mx-auto mt-6 h-px w-16 bg-brand-green"></div>
         <div class="reveal-stagger mx-auto mt-8 grid max-w-6xl gap-5 md:grid-cols-3">
             @foreach($latestPosts->take(3) as $post)
