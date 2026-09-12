@@ -36,10 +36,6 @@
     @endif
 
     <div class="mb-4">
-        <p class="mb-2 flex items-center justify-center gap-1.5 text-[13px] text-gray-500">
-            <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-            Available Days
-        </p>
         <div class="flex justify-center gap-1.5">
             @php $activeDays = $doctor->availability_days ?? []; @endphp
             @foreach(['mon' => 'M', 'tue' => 'T', 'wed' => 'W', 'thu' => 'T', 'fri' => 'F', 'sat' => 'S'] as $value => $label)
