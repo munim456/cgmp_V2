@@ -40,6 +40,10 @@
                             {{ $hero['primary_button_text'] ?? 'Book Appointment' }}
                         </a>
                     @endif
+                    <a href="{{ $hero['secondary_button_link'] ?? route('services.index') }}" class="btn-lift inline-flex w-full items-center justify-center gap-3 rounded-2xl border border-blue-300/60 hover:bg-white/10 px-7 py-5 lg:w-auto lg:gap-[0.6vw] lg:px-[1.6vw] lg:py-[1vw] lg:text-[clamp(0.7rem,1.05vw,1rem)]">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 lg:h-[1.4vw] lg:w-[1.4vw]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                        {{ $hero['secondary_button_text'] ?? 'View All Services' }}
+                    </a>
                     <a href="tel:{{ preg_replace('/\s+/', '', setting('phone', '')) }}" class="btn-lift inline-flex w-full items-center justify-center gap-3 rounded-2xl border border-blue-300/60 hover:bg-white/10 px-7 py-5 lg:w-auto lg:gap-[0.6vw] lg:px-[1.6vw] lg:py-[1vw] lg:text-[clamp(0.7rem,1.05vw,1rem)]">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 lg:h-[1.4vw] lg:w-[1.4vw]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                         {{ setting('phone') }}
@@ -213,7 +217,7 @@
 
 @if($faqs->isNotEmpty())
 <section class="px-6 py-24">
-    <x-section-title eyebrow="FAQ" title="Frequently Asked Questions" copy="Find answers to the most common questions about our services, booking, and policies." eyebrowClass="px-4 py-1 bg-[#EBF3FC] text-[#002B49] font-bold text-xs rounded-full uppercase tracking-wide" titleStyle="font-family: Georgia, 'Times New Roman', serif;" />
+    <x-section-title eyebrow="FAQ" title="Frequently Asked Questions" copy="Find answers to the most common questions about our services, booking, and policies." eyebrowClass="px-4 py-1 bg-[#EBF3FC] text-[#002B49] font-bold text-xs rounded-full uppercase tracking-wide" titleStyle="font-family: Georgia, 'Times New Roman', serif;" titleClass="whitespace-nowrap text-[6.5vw] sm:whitespace-normal sm:text-3xl md:text-4xl lg:text-5xl" copyClass="text-sm leading-6 sm:text-base sm:leading-7" />
     <div class="mx-auto mt-12 grid max-w-4xl gap-4">
         @foreach($faqs as $index => $faq)
             <x-faq-item :question="$faq->question" :answer="$faq->answer" :open="$index === 0" />
