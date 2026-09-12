@@ -207,7 +207,7 @@
         @endforeach
     </div>
     <div class="mt-8 text-center">
-        <a href="{{ route('services.index') }}" class="inline-flex items-center gap-2 font-semibold text-brand-blue transition-transform duration-200 hover:translate-x-1">
+        <a href="{{ route('services.index') }}" class="btn-lift inline-flex items-center gap-2 rounded-2xl bg-white px-6 py-3 font-semibold text-brand-blue shadow-lg hover:bg-brand-blue-tint">
             View All Services
             <svg xmlns="http://www.w3.org/2000/svg" class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
@@ -223,7 +223,7 @@
             <x-faq-item :question="$faq->question" :answer="$faq->answer" :open="$index === 0" />
         @endforeach
         <div class="text-center">
-            <p class="font-semibold text-[#062238]">Have more questions? We're happy to help.</p>
+            <p class="font-normal text-[#062238]">Have more questions? We're happy to help.</p>
             <div class="mt-5 flex flex-wrap items-center justify-center gap-4">
                 <a href="{{ route('faq') }}" class="btn-lift inline-flex items-center gap-2 rounded-2xl border border-black px-6 py-3 font-semibold text-black">
                     View All FAQs
