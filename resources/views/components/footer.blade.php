@@ -1,6 +1,6 @@
 <footer class="bg-[#061d2d] px-6 py-16 text-blue-100">
-    <div class="mx-auto grid max-w-6xl gap-12 md:grid-cols-4">
-        <div>
+    <div class="mx-auto grid max-w-6xl grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-4 md:gap-12">
+        <div class="col-span-2 md:col-span-1">
             <x-logo light />
             <p class="mt-7 leading-7">{{ setting('footer_text') }}</p>
             @if(setting('facebook_url'))
@@ -40,7 +40,7 @@
             </div>
         </div>
 
-        <div>
+        <div class="col-span-2 md:col-span-1">
             <h3 class="font-serif text-xl text-white">Contact &amp; Hours</h3>
             <div class="mt-6 grid gap-4">
                 <span class="flex items-start gap-3">
