@@ -14,17 +14,19 @@
 @endphp
 
 <div x-data="{ open: false }">
-    <header id="site-header" class="relative z-10 rounded-b-3xl border-b-4 border-brand-blue bg-white shadow-lg">
+    <header id="site-header" class="relative z-10 rounded-b-3xl border-b-2 border-brand-blue bg-white shadow-[0_2px_16px_rgba(15,42,67,0.08)]">
         <div class="flex items-center justify-between py-3 pl-4 pr-6 site-header__inner">
             <a href="{{ route('home') }}"><x-logo /></a>
 
             <nav class="hidden items-center gap-1 lg:flex">
                 @foreach($navItems as [$label, $href])
-                    <a href="{{ $href }}" class="rounded-xl border-b-2 px-3 py-3 text-[16px] transition-colors duration-200 hover:bg-brand-blue-tint {{ url()->current() === $href ? 'border-brand-blue font-semibold text-brand-blue' : 'border-transparent text-[#162232]' }}">{{ $label }}</a>
+                    <a href="{{ $href }}" class="relative px-4 py-2.5 text-[15px] font-medium tracking-wide text-[#3b4a5a] transition-colors duration-200 hover:text-brand-blue after:absolute after:bottom-0 after:left-4 after:right-4 after:h-[2px] after:origin-center after:rounded-full after:bg-brand-blue after:transition-transform after:duration-300 {{ url()->current() === $href ? 'font-semibold text-brand-blue after:scale-x-100' : 'after:scale-x-0' }}">{{ $label }}</a>
                 @endforeach
             </nav>
 
-            <x-healthengine-button :label="$bookIcon . 'Book Appointment'" class="btn-lift hidden items-center gap-2 rounded-xl bg-brand-blue px-4 py-2.5 text-sm font-bold text-white shadow-lg hover:bg-brand-blue-dark md:flex" />
+            <div class="hidden h-6 w-px bg-gray-200 lg:mr-2 lg:block"></div>
+
+            <x-healthengine-button :label="$bookIcon . 'Book Appointment'" class="btn-lift hidden items-center gap-2 rounded-xl bg-brand-blue px-4 py-2.5 text-sm font-bold text-white shadow-md hover:bg-brand-blue-dark hover:shadow-lg md:flex" />
 
             <button aria-label="Open menu" class="lg:hidden" @click="open = !open">
                 <svg x-show="!open" x-transition.opacity.duration.150ms xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -44,7 +46,7 @@
             class="flex flex-col gap-1 rounded-b-3xl border-t bg-white px-6 py-4 lg:hidden"
         >
             @foreach($navItems as [$label, $href])
-                <a href="{{ $href }}" class="rounded-lg border-l-4 px-3 py-3 transition-colors duration-200 hover:bg-brand-blue-tint {{ url()->current() === $href ? 'border-brand-blue bg-brand-blue-tint font-semibold text-brand-blue' : 'border-transparent' }}">{{ $label }}</a>
+                <a href="{{ $href }}" class="rounded-lg border-l-4 px-3 py-3 font-medium tracking-wide transition-colors duration-200 hover:bg-brand-blue-tint {{ url()->current() === $href ? 'border-brand-blue bg-brand-blue-tint font-semibold text-brand-blue' : 'border-transparent text-[#3b4a5a]' }}">{{ $label }}</a>
             @endforeach
             <hr class="my-2 border-t border-gray-200">
             <x-healthengine-button :label="$bookIcon . 'Book Appointment'" class="btn-lift mt-2 flex items-center justify-center gap-3 rounded-2xl bg-brand-blue px-5 py-4 font-bold text-white" />
