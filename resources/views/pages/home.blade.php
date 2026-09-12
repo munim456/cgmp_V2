@@ -4,6 +4,8 @@
 
 @section('content')
 
+<div class="h-1 bg-white lg:hidden"></div>
+
 <section class="relative isolate overflow-hidden rounded-t-2xl bg-brand-blue text-white lg:rounded-none lg:bg-[#0A4D8C]">
     <div class="relative mx-auto flex flex-col lg:block lg:aspect-[11/4]">
         <div class="relative z-10 order-2 flex items-center overflow-hidden px-6 py-16 lg:absolute lg:inset-y-0 lg:left-0 lg:order-1 lg:w-1/2 lg:px-[3vw] lg:py-[1vw]">
