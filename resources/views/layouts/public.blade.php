@@ -3,6 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#1B72B5">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>@yield('title', setting('clinic_name')) | {{ setting('clinic_name') }}</title>
     <meta name="description" content="@yield('meta_description', setting('tagline'))">
     <link rel="canonical" href="{{ url()->current() }}">
