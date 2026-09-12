@@ -56,7 +56,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     {!! setting('analytics_code') !!}
 </head>
-<body class="font-sans antialiased" x-data>
+<body class="bg-white font-sans antialiased" x-data>
     <div class="safe-area-top bg-[#1B72B5] text-xs text-white sm:text-sm">
         <div class="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-2 sm:px-6">
             <span class="flex items-center gap-2 sm:gap-5">
