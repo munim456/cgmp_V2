@@ -181,7 +181,7 @@
 @endif
 
 <section class="bg-brand-green-tint px-6 py-24">
-    <x-section-title eyebrow="Get in Touch" title="Visit Us or Send a Message" copy="We're always happy to hear from you. Reach out with any questions or to find out more about our services." copyClass="text-sm leading-6 sm:text-lg sm:leading-8" />
+    <x-section-title eyebrow="Get in Touch" title="Visit Us or Send a Message" copy="We're always happy to hear from you. Reach out with any questions or to find out more about our services." titleClass="whitespace-nowrap text-[6vw] sm:whitespace-normal sm:text-3xl md:text-4xl lg:text-5xl" copyClass="text-sm leading-6 sm:text-lg sm:leading-8" />
 
     <div class="mx-auto mt-8 grid max-w-6xl gap-6 sm:mt-14 sm:gap-8 md:grid-cols-2">
         <div data-reveal>
