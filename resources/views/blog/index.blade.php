@@ -4,8 +4,8 @@
 
 @section('content')
 <section class="bg-gradient-to-r from-brand-blue-darker via-brand-blue-dark to-brand-blue px-6 py-16 text-center">
-    <h1 class="font-serif text-3xl font-bold text-white md:text-4xl">Blog &amp; Health News</h1>
-    <p class="mx-auto mt-3 max-w-2xl text-base text-white/85 md:text-lg">Articles, updates and health advice from our practice.</p>
+    <h1 class="mx-auto whitespace-nowrap font-serif text-[7vw] font-bold text-white sm:whitespace-normal sm:text-3xl md:text-4xl">Blog &amp; Health News</h1>
+    <p class="mx-auto mt-3 max-w-2xl text-sm text-white/85 sm:text-base md:text-lg">Articles, updates and health advice from our practice.</p>
 </section>
 
 <section class="px-6 py-16">
