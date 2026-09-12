@@ -37,9 +37,9 @@
     ], JSON_UNESCAPED_SLASHES) !!}
     </script>
 
-    @if(setting('favicon_path'))
-        <link rel="icon" href="{{ image_url(setting('favicon_path')) }}">
-        <link rel="apple-touch-icon" href="{{ image_url(setting('favicon_path')) }}">
+    @if(setting('favicon_path') || setting('logo_path'))
+        <link rel="icon" href="{{ image_url(setting('favicon_path') ?: setting('logo_path')) }}">
+        <link rel="apple-touch-icon" href="{{ image_url(setting('favicon_path') ?: setting('logo_path')) }}">
     @else
         <link rel="icon" href="/icon.svg" type="image/svg+xml">
         <link rel="apple-touch-icon" href="/apple-icon.png">
