@@ -16,7 +16,10 @@
 <div x-data="{ open: false }">
     <header id="site-header" class="relative z-10 rounded-b-3xl border-b-2 border-brand-blue bg-white shadow-[0_2px_16px_rgba(15,42,67,0.08)]">
         <div class="flex items-center justify-between py-3 pl-4 pr-6 site-header__inner">
-            <a href="{{ route('home') }}"><x-logo /></a>
+            <a
+                href="{{ route('home') }}"
+                @click="if (window.location.pathname === '{{ parse_url(route('home'), PHP_URL_PATH) ?: '/' }}') { $event.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }"
+            ><x-logo /></a>
 
             <nav class="hidden items-center gap-1 lg:flex">
                 @foreach($navItems as [$label, $href])
