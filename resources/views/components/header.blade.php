@@ -19,7 +19,7 @@
 
             <nav class="hidden items-center gap-1 lg:flex">
                 @foreach($navItems as [$label, $href])
-                    <a href="{{ $href }}" class="rounded-xl px-3 py-3 text-[16px] text-[#162232] transition-colors duration-200 hover:bg-brand-blue-tint">{{ $label }}</a>
+                    <a href="{{ $href }}" class="rounded-xl border-b-2 px-3 py-3 text-[16px] transition-colors duration-200 hover:bg-brand-blue-tint {{ url()->current() === $href ? 'border-brand-blue font-semibold text-brand-blue' : 'border-transparent text-[#162232]' }}">{{ $label }}</a>
                 @endforeach
             </nav>
 
@@ -43,8 +43,9 @@
             class="flex flex-col gap-1 rounded-b-3xl border-t bg-white px-6 py-4 lg:hidden"
         >
             @foreach($navItems as [$label, $href])
-                <a href="{{ $href }}" class="rounded-lg px-3 py-3 transition-colors duration-200 hover:bg-brand-blue-tint">{{ $label }}</a>
+                <a href="{{ $href }}" class="rounded-lg border-l-4 px-3 py-3 transition-colors duration-200 hover:bg-brand-blue-tint {{ url()->current() === $href ? 'border-brand-blue bg-brand-blue-tint font-semibold text-brand-blue' : 'border-transparent' }}">{{ $label }}</a>
             @endforeach
+            <hr class="my-2 border-t border-gray-200">
             <x-healthengine-button class="btn-lift mt-2 flex items-center justify-center gap-3 rounded-2xl bg-brand-blue px-5 py-4 font-bold text-white" />
             <a href="{{ route('emergency') }}" class="mt-2 flex items-center gap-2 px-3 py-2 text-sm font-semibold text-red-600">
                 <span class="h-1.5 w-1.5 rounded-full bg-red-600"></span>
