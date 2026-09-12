@@ -50,6 +50,19 @@
     box-shadow: 0 0 20px rgba(0, 115, 198, 0.25);
 }
 
+/* Doctor avatar: slowly rotating gradient ring for a classy accent */
+.avatar-ring-spin {
+    background: conic-gradient(from 0deg, #1B72B5, #8BC53F, #52A336, #1B72B5);
+}
+@media (prefers-reduced-motion: no-preference) {
+    .avatar-ring-spin {
+        animation: avatar-ring-spin 5s linear infinite;
+    }
+}
+@keyframes avatar-ring-spin {
+    to { transform: rotate(360deg); }
+}
+
 /* Editorial paper-grain texture (static SVG noise, no repaint cost) */
 .bg-grain {
     position: relative;
