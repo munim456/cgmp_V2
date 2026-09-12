@@ -39,7 +39,7 @@
                         </span>
                         <div>
                             <p class="text-sm text-[#60758d]">Address</p>
-                            <p class="font-semibold text-[#062238]">{{ setting('address_line1') }}, {{ setting('address_suburb') }}</p>
+                            <p class="font-medium text-[#062238]">{{ setting('address_line1') }}, {{ setting('address_suburb') }}</p>
                         </div>
                     </div>
                     <div class="flex items-start gap-4">
@@ -48,7 +48,7 @@
                         </span>
                         <div>
                             <p class="text-sm text-[#60758d]">Phone</p>
-                            <p class="font-semibold text-[#062238]">{{ setting('phone') }}</p>
+                            <p class="font-medium text-[#062238]">{{ setting('phone') }}</p>
                         </div>
                     </div>
                     @if(setting('fax'))
@@ -58,7 +58,7 @@
                             </span>
                             <div>
                                 <p class="text-sm text-[#60758d]">Fax</p>
-                                <p class="font-semibold text-[#062238]">{{ setting('fax') }}</p>
+                                <p class="font-medium text-[#062238]">{{ setting('fax') }}</p>
                             </div>
                         </div>
                     @endif
@@ -68,7 +68,7 @@
                         </span>
                         <div>
                             <p class="text-sm text-[#60758d]">Email</p>
-                            <p class="font-semibold text-[#062238]">{{ setting('contact_email') }}</p>
+                            <p class="font-medium text-[#062238]">{{ setting('contact_email') }}</p>
                         </div>
                     </div>
                     <div class="flex items-start gap-4">
@@ -77,7 +77,7 @@
                         </span>
                         <div>
                             <p class="text-sm text-[#60758d]">Opening Hours</p>
-                            <p class="whitespace-pre-line font-semibold text-[#062238]">{{ setting('opening_hours') }}</p>
+                            <p class="whitespace-pre-line font-medium text-[#062238]">{{ setting('opening_hours') }}</p>
                         </div>
                     </div>
                 </div>
