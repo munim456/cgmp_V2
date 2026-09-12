@@ -28,9 +28,10 @@
 
             <x-healthengine-button :label="$bookIcon . 'Book Appointment'" class="btn-lift hidden items-center gap-2 rounded-xl bg-brand-blue px-4 py-2.5 text-sm font-bold text-white shadow-md hover:bg-brand-blue-dark hover:shadow-lg md:flex" />
 
-            <button aria-label="Open menu" class="p-1 lg:hidden" @click="open = !open">
-                <svg x-show="!open" x-transition.opacity.duration.150ms xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-                <svg x-show="open" x-transition.opacity.duration.150ms xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            <button aria-label="Open menu" class="relative h-8 w-8 shrink-0 lg:hidden" @click="open = !open">
+                <span class="absolute left-1/2 top-1/2 block h-0.5 w-6 -translate-x-1/2 rounded-full bg-[#162232] transition-all duration-300" :class="open ? 'translate-y-0 rotate-45' : '-translate-y-[7px]'"></span>
+                <span class="absolute left-1/2 top-1/2 block h-0.5 w-6 -translate-x-1/2 rounded-full bg-[#162232] transition-all duration-200" :class="open ? 'opacity-0' : 'opacity-100'"></span>
+                <span class="absolute left-1/2 top-1/2 block h-0.5 w-6 -translate-x-1/2 rounded-full bg-[#162232] transition-all duration-300" :class="open ? 'translate-y-0 -rotate-45' : 'translate-y-[7px]'"></span>
             </button>
         </div>
 
