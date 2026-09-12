@@ -29,10 +29,11 @@
                 @php
                     $heroPrimaryIsDefault = empty($hero['primary_button_link']) || $hero['primary_button_link'] === '/book-appointment';
                     $heroPrimaryHref = $heroPrimaryIsDefault ? booking_url() : $hero['primary_button_link'];
+                    $heroPrimaryIcon = '<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>';
                 @endphp
                 <div class="flex flex-col gap-4 mt-6 lg:flex-row lg:flex-wrap lg:mt-[1.2vw] lg:gap-[1vw]">
                     @if($heroPrimaryIsDefault)
-                        <x-healthengine-button :label="$hero['primary_button_text'] ?? 'Book Appointment'" class="btn-lift inline-flex w-full items-center justify-center gap-3 rounded-2xl bg-brand-green font-bold text-white shadow-lg hover:bg-brand-green-dark px-7 py-5 lg:w-auto lg:gap-[0.6vw] lg:px-[1.6vw] lg:py-[1vw] lg:text-[clamp(0.7rem,1.05vw,1rem)]" />
+                        <x-healthengine-button :label="$heroPrimaryIcon . ($hero['primary_button_text'] ?? 'Book Appointment')" class="btn-lift inline-flex w-full items-center justify-center gap-3 rounded-2xl bg-brand-green font-bold text-white shadow-lg hover:bg-brand-green-dark px-7 py-5 lg:w-auto lg:gap-[0.6vw] lg:px-[1.6vw] lg:py-[1vw] lg:text-[clamp(0.7rem,1.05vw,1rem)]" />
                     @else
                         <a href="{{ $heroPrimaryHref }}" class="btn-lift inline-flex w-full items-center justify-center gap-3 rounded-2xl bg-brand-green font-bold text-white shadow-lg hover:bg-brand-green-dark px-7 py-5 lg:w-auto lg:gap-[0.6vw] lg:px-[1.6vw] lg:py-[1vw] lg:text-[clamp(0.7rem,1.05vw,1rem)]">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 lg:h-[1.4vw] lg:w-[1.4vw]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>

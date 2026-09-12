@@ -9,5 +9,5 @@
         data-he-button-class="{{ $class }}"
     ></script>
 @else
-    <a href="{{ booking_url() }}" @if(booking_is_external()) target="_blank" rel="noopener" @endif class="{{ $class }}">{{ $label }}</a>
+    <a href="{{ booking_url() }}" @if(booking_is_external()) target="_blank" rel="noopener" @endif class="{{ $class }}">{!! $label !!}</a>
 @endif
