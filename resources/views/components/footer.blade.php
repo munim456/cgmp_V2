@@ -1,10 +1,10 @@
-<footer class="bg-[#061d2d] px-6 py-16 text-blue-100">
-    <div class="mx-auto grid max-w-6xl grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-4 md:gap-12">
+<footer class="bg-[#061d2d] px-6 py-10 text-blue-100 sm:py-16">
+    <div class="mx-auto grid max-w-6xl grid-cols-2 gap-x-6 gap-y-8 sm:gap-y-10 md:grid-cols-4 md:gap-12">
         <div class="col-span-2 md:col-span-1">
             <x-logo light />
-            <p class="mt-7 leading-7">{{ setting('footer_text') }}</p>
+            <p class="mt-5 text-sm leading-6 sm:mt-7 sm:text-base sm:leading-7">{{ setting('footer_text') }}</p>
             @if(setting('facebook_url'))
-                <a href="{{ setting('facebook_url') }}" target="_blank" rel="noopener" class="btn-lift mt-7 flex h-11 w-11 items-center justify-center rounded-lg bg-white/10 font-bold hover:bg-white/20">f</a>
+                <a href="{{ setting('facebook_url') }}" target="_blank" rel="noopener" class="btn-lift mt-5 flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 text-sm font-bold hover:bg-white/20 sm:mt-7 sm:h-11 sm:w-11 sm:text-base">f</a>
             @endif
         </div>
 
@@ -23,8 +23,8 @@
                 ];
         @endphp
         <div>
-            <h3 class="font-serif text-xl text-white">Quick Links</h3>
-            <div class="mt-6 grid gap-3">
+            <h3 class="font-serif text-base text-white sm:text-xl">Quick Links</h3>
+            <div class="mt-4 grid gap-2 text-sm sm:mt-6 sm:gap-3 sm:text-base">
                 @foreach($footerLinks as $link)
                     <a href="{{ $link['url'] }}" class="w-fit transition-colors duration-200 hover:text-white">{{ $link['label'] }}</a>
                 @endforeach
@@ -32,8 +32,8 @@
         </div>
 
         <div>
-            <h3 class="font-serif text-xl text-white">Our Services</h3>
-            <div class="mt-6 grid gap-3">
+            <h3 class="font-serif text-base text-white sm:text-xl">Our Services</h3>
+            <div class="mt-4 grid gap-2 text-sm sm:mt-6 sm:gap-3 sm:text-base">
                 @foreach(\App\Models\Service::active()->get() as $footerService)
                     <a href="{{ route('services.show', $footerService) }}" class="w-fit transition-colors duration-200 hover:text-white">{{ $footerService->title }}</a>
                 @endforeach
@@ -41,8 +41,8 @@
         </div>
 
         <div class="col-span-2 md:col-span-1">
-            <h3 class="font-serif text-xl text-white">Contact &amp; Hours</h3>
-            <div class="mt-6 grid gap-4">
+            <h3 class="font-serif text-base text-white sm:text-xl">Contact &amp; Hours</h3>
+            <div class="mt-4 grid gap-3 text-sm sm:mt-6 sm:gap-4 sm:text-base">
                 <span class="flex items-start gap-3">
                     <svg xmlns="http://www.w3.org/2000/svg" class="mt-0.5 h-4 w-4 shrink-0 text-brand-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
                     <span>{{ setting('address_line1') }}, {{ setting('address_suburb') }}</span>
@@ -60,7 +60,7 @@
         </div>
     </div>
 
-    <div class="mx-auto mt-14 flex max-w-6xl flex-wrap justify-between gap-4 border-t border-white/10 pt-7 text-sm">
+    <div class="mx-auto mt-8 flex max-w-6xl flex-wrap justify-between gap-4 border-t border-white/10 pt-5 text-xs sm:mt-14 sm:pt-7 sm:text-sm">
         <span>&copy; {{ now()->year }} {{ setting('clinic_name') }}. All rights reserved.</span>
         <span>
             <a href="{{ route('pages.privacy') }}" class="hover:underline">Privacy Policy</a>
