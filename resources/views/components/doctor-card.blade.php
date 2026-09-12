@@ -15,23 +15,20 @@
         <h3 style="{{ text_style($doctor->text_styles, 'name') }}" class="mt-4 text-lg font-bold text-[#002B49]">{{ $doctor->name }}</h3>
         <p style="{{ text_style($doctor->text_styles, 'qualifications') }}" class="mt-1 text-[13px] font-semibold text-[#4A8B2C]">{{ $doctor->qualifications }}</p>
         <p style="{{ text_style($doctor->text_styles, 'role') }}" class="text-[13px] text-gray-500">{{ $doctor->role }}</p>
-        @if($doctor->years_experience)
-            <div class="mt-1.5 flex items-center gap-1 text-xs text-gray-500">
-                <svg class="h-3 w-3 fill-amber-400 text-amber-400" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                {{ $doctor->years_experience }}
-            </div>
-        @endif
     </div>
 
     @if($doctor->bio)
         <p style="{{ text_style($doctor->text_styles, 'bio') }}" class="mb-4 line-clamp-2 text-sm leading-relaxed text-gray-500">{{ $doctor->bio }}</p>
     @endif
 
-    @if($doctor->languageList())
+    @if($doctor->years_experience || $doctor->languageList())
         <div class="mb-4 flex flex-wrap justify-center gap-2">
+            @if($doctor->years_experience)
+                <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600">{{ $doctor->years_experience }}</span>
+            @endif
             @foreach($doctor->languageList() as $language)
-                <span class="flex items-center gap-1 rounded-full bg-purple-100 px-3 py-1 text-xs font-medium text-purple-700">
-                    <svg class="h-3 w-3" fill="currentColor" viewBox="0 0 20 20"><path d="M7 4a1 1 0 011 1v1h4V5a1 1 0 112 0v1h2a1 1 0 110 2h-1.071l-1.42 5.682A3 3 0 0110.6 17H9.4a3 3 0 01-2.909-2.318L5.071 9H4a1 1 0 110-2h2V5a1 1 0 011-1z"/></svg>
+                <span class="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700">
+                    <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg>
                     {{ $language }}
                 </span>
             @endforeach
