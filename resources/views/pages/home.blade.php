@@ -141,7 +141,7 @@
 
 @if($services->isNotEmpty())
 <section class="relative isolate overflow-hidden px-6 py-24" style="background-image: linear-gradient(rgba(255,255,255,.25), rgba(255,255,255,.25)), url('{{ asset('images/faq-consult.jpg') }}'); background-size: cover; background-position: center;">
-    <x-section-title eyebrow="Our Services" title="Comprehensive Care for Your Whole Family" copy="From preventive care to specialist referrals, we provide a full spectrum of medical services tailored to meet the diverse needs of our community." :nowrap="true" />
+    <x-section-title eyebrow="Our Services" title="Comprehensive Care for Your Whole Family" copy="From preventive care to specialist referrals, we provide a full spectrum of medical services tailored to meet the diverse needs of our community." :nowrap="true" copyClass="text-sm leading-6 sm:text-lg sm:leading-8" />
     <div class="reveal-stagger mx-auto mt-10 grid max-w-6xl gap-5 md:grid-cols-3">
         @foreach($services as $service)
             <x-service-card :service="$service" />

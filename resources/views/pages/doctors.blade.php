@@ -9,7 +9,7 @@
 </section>
 
 <section class="bg-white px-6 py-24">
-    <x-section-title eyebrow="Meet Our Doctors" title="Expert Care from Experienced Practitioners" copy="Our multilingual team of GPs bring a wealth of experience and compassion to every consultation." :nowrap="true" />
+    <x-section-title eyebrow="Meet Our Doctors" title="Expert Care from Experienced Practitioners" copy="Our multilingual team of GPs bring a wealth of experience and compassion to every consultation." :nowrap="true" copyClass="text-sm leading-6 sm:text-lg sm:leading-8" />
 
     <div class="reveal-stagger mx-auto mt-14 grid max-w-6xl gap-8 md:grid-cols-2 lg:grid-cols-3">
         @foreach($doctors as $doctor)
