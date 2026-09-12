@@ -40,7 +40,9 @@ class SectionController extends Controller
         $current = section_data('hero');
         unset($data['image']);
 
-        if ($request->hasFile('image')) {
+        if ($request->boolean('remove_image')) {
+            $data['image'] = null;
+        } elseif ($request->hasFile('image')) {
             $data['image'] = ImageUploader::store($request->file('image'), 'sections', 2000);
         } else {
             $data['image'] = $current['image'] ?? null;
@@ -86,7 +88,9 @@ class SectionController extends Controller
             ),
         ];
 
-        if ($request->hasFile('image')) {
+        if ($request->boolean('remove_image')) {
+            $payload['image'] = null;
+        } elseif ($request->hasFile('image')) {
             $payload['image'] = ImageUploader::store($request->file('image'), 'sections', 2000);
         }
 

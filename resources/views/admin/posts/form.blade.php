@@ -60,6 +60,10 @@
             <input type="file" name="featured_image" accept="image/*" class="mt-1 w-full">
             @if($post->featured_image)
                 <img src="{{ image_url($post->featured_image) }}" class="mt-2 h-24 rounded-lg object-cover" alt="">
+                <label class="mt-2 flex items-center gap-2 text-sm text-gray-600">
+                    <input type="checkbox" name="remove_featured_image" value="1" class="rounded border-gray-300">
+                    Remove image
+                </label>
             @endif
         </label>
 

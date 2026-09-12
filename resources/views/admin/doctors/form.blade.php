@@ -66,6 +66,10 @@
             <input type="file" name="photo" accept="image/*" class="mt-1 w-full">
             @if($doctor->photo)
                 <img src="{{ image_url($doctor->photo) }}" class="mt-2 h-24 w-24 rounded-full object-cover" alt="">
+                <label class="mt-2 flex items-center gap-2 text-sm text-gray-600">
+                    <input type="checkbox" name="remove_photo" value="1" class="rounded border-gray-300">
+                    Remove photo
+                </label>
             @endif
         </label>
 

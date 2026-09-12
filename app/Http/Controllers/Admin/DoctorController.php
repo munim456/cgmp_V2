@@ -46,7 +46,9 @@ class DoctorController extends Controller
     {
         $data = $this->validated($request);
 
-        if ($request->hasFile('photo')) {
+        if ($request->boolean('remove_photo')) {
+            $data['photo'] = null;
+        } elseif ($request->hasFile('photo')) {
             $data['photo'] = ImageUploader::store($request->file('photo'), 'doctors');
         }
 

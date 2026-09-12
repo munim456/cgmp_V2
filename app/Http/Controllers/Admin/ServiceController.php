@@ -49,7 +49,9 @@ class ServiceController extends Controller
         $data = $this->validated($request, $service->id);
         $data['slug'] = $data['slug'] ?: Str::slug($data['title']);
 
-        if ($request->hasFile('image')) {
+        if ($request->boolean('remove_image')) {
+            $data['image'] = null;
+        } elseif ($request->hasFile('image')) {
             $data['image'] = ImageUploader::store($request->file('image'), 'services');
         }
 

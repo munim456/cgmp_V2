@@ -61,7 +61,9 @@ class PostController extends Controller
         $data = $this->validated($request);
         $data['slug'] = $data['slug'] ?: Str::slug($data['title']);
 
-        if ($request->hasFile('featured_image')) {
+        if ($request->boolean('remove_featured_image')) {
+            $data['featured_image'] = null;
+        } elseif ($request->hasFile('featured_image')) {
             $data['featured_image'] = ImageUploader::store($request->file('featured_image'), 'posts');
         }
 
