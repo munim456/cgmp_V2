@@ -217,7 +217,7 @@
 
 @if($faqs->isNotEmpty())
 <section class="px-6 py-24">
-    <x-section-title eyebrow="FAQ" title="Frequently Asked Questions" copy="Find answers to the most common questions about our services, booking, and policies." eyebrowClass="px-4 py-1 bg-[#EBF3FC] text-[#002B49] font-bold text-xs rounded-full uppercase tracking-wide" titleStyle="font-family: Georgia, 'Times New Roman', serif;" titleClass="whitespace-nowrap text-[6.5vw] sm:whitespace-normal sm:text-3xl md:text-4xl lg:text-5xl" copyClass="text-sm leading-6 sm:text-base sm:leading-7" />
+    <x-section-title eyebrow="FAQ" title="Frequently Asked Questions" copy="Find answers to the most common questions about our services, booking, and policies." eyebrowClass="px-4 py-1 bg-[#EBF3FC] text-[#002B49] font-bold text-xs rounded-full uppercase tracking-wide" titleStyle="font-family: Georgia, 'Times New Roman', serif;" titleClass="whitespace-nowrap text-[6vw] sm:whitespace-normal sm:text-3xl md:text-4xl lg:text-5xl" copyClass="text-sm leading-6 sm:text-base sm:leading-7" />
     <div class="mx-auto mt-12 grid max-w-4xl gap-4">
         @foreach($faqs as $index => $faq)
             <x-faq-item :question="$faq->question" :answer="$faq->answer" :open="$index === 0" />
