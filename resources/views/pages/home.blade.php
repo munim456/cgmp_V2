@@ -94,30 +94,6 @@
 </section>
 @endif
 
-@if($testimonials->isNotEmpty())
-<section class="px-6 py-24" aria-label="Patient feedback">
-    <x-section-title eyebrow="Testimonials" title="What Our Patients Say" titleClass="whitespace-nowrap text-[6vw] sm:whitespace-normal sm:text-3xl md:text-4xl lg:text-5xl" />
-    <div class="reveal-stagger mx-auto mt-8 grid max-w-5xl gap-5 sm:mt-12 sm:gap-7 md:grid-cols-2">
-        @foreach($testimonials as $testimonial)
-            <figure class="rounded-3xl bg-white p-5 shadow-xl sm:p-8" data-reveal>
-                <div class="flex gap-1 text-amber-400">
-                    @for($i = 0; $i < $testimonial->rating; $i++)
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01z"/></svg>
-                    @endfor
-                </div>
-                <blockquote style="{{ text_style($testimonial->text_styles, 'content') }}" class="mt-3 text-sm leading-6 text-[#062238] sm:mt-4 sm:text-lg sm:leading-7">&ldquo;{{ $testimonial->content }}&rdquo;</blockquote>
-                <figcaption class="mt-3 text-sm font-semibold text-brand-blue sm:mt-4 sm:text-base">
-                    <span style="{{ text_style($testimonial->text_styles, 'name') }}">{{ $testimonial->name }}</span>
-                    @if($testimonial->context)
-                        <span style="{{ text_style($testimonial->text_styles, 'context') }}" class="font-normal text-[#60758d]"> &mdash; {{ $testimonial->context }}</span>
-                    @endif
-                </figcaption>
-            </figure>
-        @endforeach
-    </div>
-</section>
-@endif
-
 @if($latestPosts->isNotEmpty())
 <section class="bg-grain relative isolate overflow-hidden bg-gradient-to-br from-white via-brand-blue-tint to-[#a9d4f5] px-6 py-14">
     <span class="pointer-events-none absolute -left-6 -top-16 select-none font-serif text-[220px] leading-none text-brand-blue-tint md:text-[280px]" aria-hidden="true">&ldquo;</span>

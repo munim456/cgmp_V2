@@ -7,7 +7,6 @@ use App\Models\Doctor;
 use App\Models\Faq;
 use App\Models\Post;
 use App\Models\Service;
-use App\Models\Testimonial;
 use Illuminate\Contracts\View\View;
 
 class HomeController extends Controller
@@ -22,7 +21,6 @@ class HomeController extends Controller
             'services' => Service::active()->take(3)->get(),
             'doctors' => Doctor::active()->take(1)->get(),
             'faqs' => Faq::active()->take(6)->get(),
-            'testimonials' => Testimonial::active()->get(),
         ]);
     }
 }
