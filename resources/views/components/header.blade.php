@@ -13,9 +13,9 @@
 @endphp
 
 <div x-data="{ open: false }">
-    <header id="site-header" class="relative z-10 rounded-b-3xl border-b-4 border-brand-blue bg-[#1B72B5] shadow-lg lg:bg-white">
+    <header id="site-header" class="relative z-10 rounded-b-3xl border-b-4 border-brand-blue bg-white shadow-lg">
         <div class="flex items-center justify-between py-4 pl-4 pr-6 site-header__inner">
-            <a href="{{ route('home') }}"><x-logo lightOnMobile /></a>
+            <a href="{{ route('home') }}"><x-logo /></a>
 
             <nav class="hidden items-center gap-1 lg:flex">
                 @foreach($navItems as [$label, $href])
@@ -25,7 +25,7 @@
 
             <x-healthengine-button class="btn-lift hidden items-center gap-2 rounded-xl bg-brand-blue px-4 py-2.5 text-sm font-bold text-white shadow-lg hover:bg-brand-blue-dark md:flex" />
 
-            <button aria-label="Open menu" class="text-white lg:hidden" @click="open = !open">
+            <button aria-label="Open menu" class="lg:hidden" @click="open = !open">
                 <svg x-show="!open" x-transition.opacity.duration.150ms xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
                 <svg x-show="open" x-transition.opacity.duration.150ms xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
             </button>
