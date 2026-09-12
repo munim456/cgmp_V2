@@ -23,7 +23,12 @@
                     @if($heroHeadingLead !== '')
                         {{ $heroHeadingLead }}
                     @endif
-                    <span class="text-brand-green underline decoration-2 underline-offset-4">{{ $heroHeadingHighlight }}</span>
+                    <span class="relative inline-block text-brand-green">
+                        {{ $heroHeadingHighlight }}
+                        <svg class="squiggle-underline absolute -bottom-1 left-0 h-2 w-full" viewBox="0 0 100 8" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 4 Q 8 0, 16 4 T 32 4 T 48 4 T 64 4 T 80 4 T 96 4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                    </span>
                 </h1>
                 <p style="{{ text_style($hero['styles'] ?? null, 'subheading') }}" class="leading-6 text-blue-50 mt-4 text-xs font-light lg:mt-[0.8vw] lg:text-[#B8CCE0] lg:leading-[1.6] lg:text-[clamp(0.625rem,1vw,1rem)]">{{ $hero['subheading'] ?? '' }}</p>
                 @php
