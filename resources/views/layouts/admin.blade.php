@@ -53,7 +53,7 @@
                     ];
                 @endphp
                 @foreach($links as [$routeName, $label, $iconPath])
-                    <a href="{{ route($routeName) }}" class="flex items-center gap-3 rounded-lg border-l-4 px-3 py-2 transition-colors duration-200 {{ request()->routeIs($routeName.'*') ? 'border-brand-green bg-white/10 font-semibold text-white' : 'border-transparent hover:bg-white/5' }}">
+                    <a href="{{ route($routeName) }}" class="flex items-center gap-3 rounded-lg border-l-4 px-3 py-2 transition-colors duration-200 {{ request()->routeIs($routeName.'*') ? 'border-sky-400 bg-white/10 font-semibold text-white' : 'border-transparent hover:bg-white/5' }}">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="{{ $iconPath }}"/></svg>
                         {{ $label }}
                     </a>
@@ -82,7 +82,7 @@
             <header class="flex items-center justify-between border-b-2 border-brand-blue bg-white px-6 py-4 shadow-[0_2px_16px_rgba(15,42,67,0.08)]">
                 <h1 class="font-serif text-xl font-bold text-[#062238]">@yield('title', 'Dashboard')</h1>
                 <div class="flex items-center gap-2.5 text-sm text-gray-600">
-                    <span class="service-icon-badge flex h-8 w-8 items-center justify-center rounded-full text-xs font-bold text-white">
+                    <span class="admin-icon-badge flex h-8 w-8 items-center justify-center rounded-full text-xs font-bold text-white">
                         {{ collect(explode(' ', auth()->user()?->name ?? 'A'))->map(fn ($w) => mb_substr($w, 0, 1))->implode('') }}
                     </span>
                     {{ auth()->user()?->name }}

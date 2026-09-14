@@ -5,7 +5,7 @@
 @section('content')
 <div class="grid gap-6 md:grid-cols-3">
     <div class="rounded-xl bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
-        <div class="service-icon-badge flex h-10 w-10 items-center justify-center rounded-xl">
+        <div class="admin-icon-badge flex h-10 w-10 items-center justify-center rounded-xl">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4zM4 8l8 6 8-6"/></svg>
         </div>
         <p class="mt-4 text-sm text-gray-500">Unread Messages</p>
@@ -16,14 +16,14 @@
         </a>
     </div>
     <div class="rounded-xl bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
-        <div class="service-icon-badge flex h-10 w-10 items-center justify-center rounded-xl">
+        <div class="admin-icon-badge flex h-10 w-10 items-center justify-center rounded-xl">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
         </div>
         <p class="mt-4 text-sm text-gray-500">Total Messages</p>
         <p class="mt-1 text-3xl font-bold text-[#062238]">{{ $totalMessages }}</p>
     </div>
     <div class="rounded-xl bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
-        <div class="service-icon-badge flex h-10 w-10 items-center justify-center rounded-xl">
+        <div class="admin-icon-badge flex h-10 w-10 items-center justify-center rounded-xl">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg>
         </div>
         <p class="mt-4 text-sm text-gray-500">Quick Links</p>
@@ -53,7 +53,7 @@
                 <tr class="transition-colors duration-150 hover:bg-brand-blue-tint/40">
                     <td class="px-6 py-3"><a href="{{ route('admin.posts.edit', $post) }}" class="font-semibold text-brand-blue hover:underline">{{ $post->title }}</a></td>
                     <td class="px-6 py-3">
-                        <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold {{ $post->status === 'published' ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-700' }}">{{ ucfirst($post->status) }}</span>
+                        <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold {{ $post->status === 'published' ? 'bg-blue-100 text-blue-700' : 'bg-amber-100 text-amber-700' }}">{{ ucfirst($post->status) }}</span>
                     </td>
                     <td class="px-6 py-3 text-gray-500">{{ $post->updated_at->diffForHumans() }}</td>
                 </tr>
